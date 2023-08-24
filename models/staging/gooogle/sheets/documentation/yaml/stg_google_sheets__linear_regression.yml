@@ -1,0 +1,25 @@
+
+version: 2
+
+models:
+    - name: stg_google_sheets_linear_regression
+      description: "X Y data for linear regression model."
+      columns:
+          - name: x
+            description: '{{ doc("google_sheets__x") }}'
+            tests:
+                - not_null
+          - name: y
+            description: '{{ doc("google_sheets__y") }}'
+            tests:
+                - not_null
+          - name: _row
+            description: '{{ doc("google_sheets___row") }}'
+            tests:
+                - not_null
+          - name: _FIVETRAN_SYNCED
+            description: '{{ doc("google_sheets___FIVETRAN_SYNCED") }}'
+            tests:
+                - not_null
+
+
