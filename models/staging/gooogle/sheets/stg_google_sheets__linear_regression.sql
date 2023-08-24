@@ -9,9 +9,9 @@ source as (
 renamed as (
 
     select
-        _row::number,
-        x::number,
-        y::number,
+        _row::INTEGER,
+        x::INTEGER,
+        y::INTEGER,
         _fivetran_synced
 
     from source
