@@ -3,22 +3,22 @@ version: 2
 
 models:
     - name: stg_google_sheets__linear_regression
-      description: "X Y data for linear regression model."
+      description: X Y data for linear regression model.
       columns:
           - name: x
-            description: "The x data for my model."
+            description: The x data for my model.
             tests:
                 - not_null
           - name: y
-            description: "The produced y data from x input."
+            description: The produced y data from x input.
             tests:
                 - not_null
           - name: _row
-            description: "The row number for when it was entered into snowflake via fivetran."
+            description: The row number for when it was entered into snowflake via fivetran.
             tests:
                 - not_null
           - name: _FIVETRAN_SYNCED
-            description: "Timestamp when fivetran ingested the data from sheets."
+            description: Timestamp when fivetran ingested the data from sheets.
             tests:
                 - not_null
 
