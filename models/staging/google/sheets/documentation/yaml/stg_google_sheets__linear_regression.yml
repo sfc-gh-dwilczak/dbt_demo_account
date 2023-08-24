@@ -3,7 +3,7 @@ version: 2
 
 models:
     - name: stg_google_sheets__linear_regression
-      description: X Y data for linear regression model.
+      description: X Y data for linear regression models.
       columns:
           - name: X
             description: The x data for my model.
