@@ -5,15 +5,15 @@ models:
     - name: stg_google_sheets__linear_regression
       description: X Y data for linear regression model.
       columns:
-          - name: x
+          - name: X
             description: The x data for my model.
             tests:
                 - not_null
-          - name: y
+          - name: Y
             description: The produced y data from x input.
             tests:
                 - not_null
-          - name: _row
+          - name: _ROW
             description: The row number for when it was entered into snowflake via fivetran.
             tests:
                 - not_null
