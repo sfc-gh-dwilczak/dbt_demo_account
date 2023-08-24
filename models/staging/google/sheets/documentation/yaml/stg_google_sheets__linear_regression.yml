@@ -6,20 +6,19 @@ models:
       description: "X Y data for linear regression model."
       columns:
           - name: x
-            description: '{{ doc("google_sheets__x") }}'
+            description: "The x data for my model."
             tests:
                 - not_null
           - name: y
-            description: '{{ doc("google_sheets__y") }}'
+            description: "The produced y data from x input."
             tests:
                 - not_null
           - name: _row
-            description: '{{ doc("google_sheets___row") }}'
+            description: "The row number for when it was entered into snowflake via fivetran."
             tests:
                 - not_null
           - name: _FIVETRAN_SYNCED
-            description: '{{ doc("google_sheets___FIVETRAN_SYNCED") }}'
+            description: "Timestamp when fivetran ingested the data from sheets."
             tests:
                 - not_null
-
 
