@@ -1,0 +1,17 @@
+
+version: 2
+
+models:
+    - name: stg_google_sheets_linear_regression
+      description: "X Y data for linear regression model."
+      columns:
+          - name: x
+            description: "The x data for my model."
+            tests:
+                - not_null
+          - name: y
+            description: "The produced y data from x input."
+            tests:
+                - not_null
+
+

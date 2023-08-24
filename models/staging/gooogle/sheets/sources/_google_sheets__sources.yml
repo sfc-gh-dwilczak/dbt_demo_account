@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: google_sheets
+    database: fivetran_database  
+    schema: google_sheets  
+    tables:
+      - name: linear_regression
