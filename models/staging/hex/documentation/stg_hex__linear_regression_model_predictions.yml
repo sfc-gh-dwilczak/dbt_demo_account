@@ -1,0 +1,16 @@
+models:
+    - name: stg_hex__linear_regression_model_predictions
+      description: X Y data for linear regression models.
+      columns:
+          - name: x
+            description: The x data for my model.
+            tests:
+                - not_null
+          - name: y
+            description: The produced y data from x input.
+            tests:
+                - not_null
+          - name: predictions
+            description: The models predicted value from it's x input.
+            tests:
+                - not_null

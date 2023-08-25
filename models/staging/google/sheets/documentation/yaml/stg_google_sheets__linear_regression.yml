@@ -1,6 +1,3 @@
-
-version: 2
-
 models:
     - name: stg_google_sheets__linear_regression
       description: X Y data for linear regression models.
@@ -21,4 +18,3 @@ models:
             description: Timestamp when fivetran ingested the data from sheets.
             tests:
                 - not_null
-

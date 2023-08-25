@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: hex
+    database: hex_database  
+    schema: ml_predictions
+    tables:
+      - name:  linear_regression_model_predictions
+        description: Model that has x and y data to be used for linear regression.
