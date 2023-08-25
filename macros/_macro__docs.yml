@@ -1,0 +1,7 @@
+version: 2
+macros:
+  - name: generate_schema_name
+    description: >
+      A macro to remove model and schema prefix in prod and main.
+      Dcoumentation for macro can be found on:
+      https://docs.getdbt.com/docs/build/custom-schemas
