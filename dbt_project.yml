@@ -31,4 +31,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
     Analytics:
       staging:
-        +materialized: table
+        +materialized: view
+        
+        hex:
+          +schema: hex
+        google:
+          sheets:
+            +schema: google_analytics
+        
