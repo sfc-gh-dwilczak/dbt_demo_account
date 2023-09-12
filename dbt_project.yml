@@ -32,10 +32,4 @@ models:
     Analytics:
       staging:
         +materialized: view
-
-        hex:
-          +schema: hex
-        google:
-          sheets:
-            +schema: google_sheets
         
