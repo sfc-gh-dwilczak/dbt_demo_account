@@ -8,7 +8,7 @@ renamed as (
         _row,
         x,
         y,
-        _fivetran_synced
+        _fivetran_synced as data 
 
     from source
 
