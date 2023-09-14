@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: hex
-    database: hex_database  
+    database: hex
     schema: ml_predictions
     tables:
       - name:  linear_regression_model_predictions
