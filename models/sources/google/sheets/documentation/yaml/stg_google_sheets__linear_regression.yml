@@ -1,20 +1,20 @@
 models:
-    - name: stg_google_sheets__linear_regression
+    - name: src_google_sheets__linear_regression
       description: X Y data for linear regression models.
       columns:
           - name: X
-            description: The x data for my model.
+            description: '{{ doc("google_sheets__x") }}'
             tests:
                 - not_null
           - name: Y
-            description: The produced y data from x input.
+            description: '{{ doc("google_sheets__y") }}'
             tests:
                 - not_null
           - name: _ROW
-            description: The row number for when it was entered into snowflake via fivetran.
+            description: '{{ doc("google_sheets___row") }}'
             tests:
                 - not_null
           - name: _FIVETRAN_SYNCED
-            description: Timestamp when fivetran ingested the data from sheets.
+            description: '{{ doc("google_sheets___FIVETRAN_SYNCED") }}'
             tests:
                 - not_null
