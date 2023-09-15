@@ -30,7 +30,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
     Analytics:
       sources:
+        +database: sources
         +materialized: view
-        +schema: sources
+        
+        google:
+          sheets:
+            +schema: google_sheets
 
       
