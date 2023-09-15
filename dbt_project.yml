@@ -29,8 +29,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 models:
     Analytics:
-      staging:
+      sources:
         +materialized: view
-        +schema: staging
+        +schema: sources
 
       
