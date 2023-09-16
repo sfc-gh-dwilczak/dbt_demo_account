@@ -14,6 +14,10 @@
         {% set db = 'staging' %}
     {% elif node.name.startswith('src') %}
         {% set db = 'sources' %}
+    {% elif node.name.startswith('seed') %}
+        {% set db = 'seeds' %}
+    {% elif node.name.startswith('snapshots') %}
+        {% set db = 'snapshots' %}
     {% elif node.name.startswith('int') %}
         {% set db = 'intermediates' %}
     {% elif node.name.startswith('dim') %}
