@@ -28,13 +28,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 models:
-    Analytics:
-      sources:
-        +database: sources
-        +materialized: view
-        
-        google:
-          sheets:
-            +schema: google_sheets
-
-      
+  Analytics:
+    marts:
+      +database: semantic_layer
+    sources:
+      +materialized: view
