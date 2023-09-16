@@ -12,7 +12,7 @@ renamed as (
         country_id,
         country,
         iso_currency,
-        iso_country
+        iso_country as iso_country_code
 
     from source
 
