@@ -10,7 +10,7 @@ renamed as (
 
     select
         location_id,
-        placekey,
+        placekey as place_key,
         location as location_name,
         city as city_name,
         region as region_name,
