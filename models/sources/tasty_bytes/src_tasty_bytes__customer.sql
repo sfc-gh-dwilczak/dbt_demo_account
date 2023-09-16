@@ -13,7 +13,11 @@ renamed as (
         first_name,
         last_name,
         city as city_name,
-        country as country_name,
+        case country
+            when 'United Kingdom'
+            then 'England'
+            else country
+        end as country_name,
         postal_code,
         preferred_language,
         gender,
