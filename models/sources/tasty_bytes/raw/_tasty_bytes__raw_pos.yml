@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: tasty_bytes
-    database: tastybytes 
+    database: share_tastybytes 
     schema: raw_pos_v2
     tables:
       - name: city

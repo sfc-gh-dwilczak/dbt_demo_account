@@ -2,7 +2,16 @@ version: 2
 macros:
   - name: generate_schema_name
     description: >
-      Generates a user-defined schema in dev.Otherwise uses
+      Generates a user-defined schema in dev. Otherwise uses
       the custom schema defined in dbt_project.yml.
       Documentation for macro can be found on:
       https://docs.getdbt.com/docs/build/custom-schemas
+  - name: generate_database_name
+    description: >
+      Generates a user-defined database in dev. Otherwise uses
+      the custom database defined in dbt_project.yml.
+      Documentation for macro can be found on:
+      https://docs.getdbt.com/docs/build/custom-databases#generate_database_name
+  - name: statistics
+    description: >
+      UPDATE ME!
