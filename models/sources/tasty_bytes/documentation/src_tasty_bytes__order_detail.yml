@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: src_tasty_bytes__order_detail_id
+    description: Orders detail dimensions.
+    columns:
+      - name: order_detail_id
+        description: "{{ doc('tasty_bytes__order_detail_id') }}"
+        tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: "{{ doc('tasty_bytes__order_id') }}"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('src_tasty_bytes__order_headers')
+              field: order_id
+      - name: menu_item_id
+        description: "{{ doc('tasty_bytes__menu_item_id') }}"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('menu')
+              field: menu_item_id
+      - name: discount_id
+        description: "{{ doc('tasty_bytes__discount_id') }}"
+      - name: line_number
+        description: "{{ doc('tasty_bytes__line_number') }}"
+      - name: quantity
+        description: "{{ doc('tasty_bytes__quantity') }}"
+      - name: unit_price
+        description: "{{ doc('tasty_bytes__unit_price') }}"
+      - name: price
+        description: "{{ doc('tasty_bytes__price') }}"
+      - name: order_item_discount_amount
+        description: "{{ doc('tasty_bytes__order_item_discount_amount') }}"

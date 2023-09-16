@@ -32,9 +32,10 @@ models:
       sources:
         +database: sources
         +materialized: view
-        
         google:
           sheets:
             +schema: google_sheets
+        tasty_bytes:
+          +schema: tasty_bytes
 
       

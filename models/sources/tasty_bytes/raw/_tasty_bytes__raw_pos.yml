@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: tasty_bytes
+    database: tastybytes 
+    schema: raw_pos_v2
+    tables:
+      - name: city
+        description: City dimensions.
+        identifier: country
+      - name: franchise
+        description: Franchise dimensions.
+      - name: location
+        description: Location dimensions.
+      - name: menu
+        description: Menu dimensions.
+      - name: order_detail
+        description: Order detail facts for order + item data.
+      - name: order_header
+        description: Order header facts for order data.
+      - name: truck
+        description: Truck dimensions.

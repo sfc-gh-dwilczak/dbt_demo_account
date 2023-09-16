@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: src_tasty_bytes__customer
+    description: Customer dimensions.
+    columns:
+      - name: customer_id
+        description: "{{ doc('tasty_bytes__customer_id') }}"
+        tests:
+          - not_null
+          - unique
+      - name: first_name
+        description: "{{ doc('tasty_bytes__first_name') }}"
+      - name: last_name
+        description: "{{ doc('tasty_bytes__last_name') }}"
+      - name: city_name
+        description: "{{ doc('tasty_bytes__city_name') }}"
+        tests:
+          - relationships:
+              to: ref('src_tasty_bytes__city')
+              field: city_name
+              config:
+                severity: warn
+      - name: country_name
+        description: "{{ doc('tasty_bytes__country_name') }}"
+        tests:
+          - relationships:
+              to: ref('src_tasty_bytes__country')
+              field: country_name
+              config:
+                severity: warn
+      - name: postal_code
+        description: "{{ doc('tasty_bytes__postal_code') }}"
+      - name: preferred_language
+        description: "{{ doc('tasty_bytes__preferred_language') }}"
+      - name: gender
+        description: "{{ doc('tasty_bytes__gender') }}"
+      - name: favourite_brand
+        description: "{{ doc('tasty_bytes__favourite_brand') }}"
+      - name: marital_status
+        description: "{{ doc('tasty_bytes__marital_status') }}"
+      - name: children_count
+        description: "{{ doc('tasty_bytes__children_count') }}"
+      - name: sign_up_date
+        description: "{{ doc('tasty_bytes__sign_up_date') }}"
+      - name: birthday_date
+        description: "{{ doc('tasty_bytes__birthday_date') }}"
+      - name: email
+        description: "{{ doc('tasty_bytes__email') }}"
+      - name: phone_number
+        description: "{{ doc('tasty_bytes__phone_number') }}"

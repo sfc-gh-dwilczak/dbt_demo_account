@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: src_tasty_bytes__city
+    description: City dimensions.
+    columns:
+      - name: city_id
+        description: "{{ doc('tasty_bytes__city_id') }}"
+        tests:
+          - not_null
+          - unique
+      - name: city_name
+        description: "{{ doc('tasty_bytes__city_name') }}"
+        tests:
+          - not_null
+          - unique
+      - name: city_population
+        description: "{{ doc('tasty_bytes__city_population') }}"
+      - name: country_id
+        description: "{{ doc('tasty_bytes__country_id') }}"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('src_tasty_bytes__country')
+              field: country_id
