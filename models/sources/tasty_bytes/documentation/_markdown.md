@@ -85,3 +85,15 @@ Primary key for franchises.
 {% docs tasty_bytes__location_id %}
 Primary key for a location.
 {% enddocs %}
+
+{% docs tasty_bytes__placekey %}
+Primary key for a location.
+{% enddocs %}
+
+{% docs tasty_bytes__location_name %}
+Location name.
+{% enddocs %}
+
+{% docs tasty_bytes__region_name %}
+Region name.
+{% enddocs %}
