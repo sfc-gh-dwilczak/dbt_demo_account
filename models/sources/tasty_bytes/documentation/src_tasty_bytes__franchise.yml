@@ -3,17 +3,36 @@ version: 2
 models:
   - name: src_tasty_bytes__franchise
     description: Franchise dimensions.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - franchise_id
+            - city_name
     columns:
       - name: franchise_id
         description: "{{ doc('tasty_bytes__franchise_id') }}"
+        tests:
+          - not_null
       - name: first_name
         description: "{{ doc('tasty_bytes__first_name') }}"
       - name: last_name
         description: "{{ doc('tasty_bytes__last_name') }}"
       - name: city_name
         description: "{{ doc('tasty_bytes__city_name') }}"
+        tests:
+          - relationships:
+              to: ref('src_tasty_bytes__city')
+              field: city_name
+              config:
+                severity: warn
       - name: country_name
         description: "{{ doc('tasty_bytes__country_name') }}"
+        tests:
+          - relationships:
+              to: ref('src_tasty_bytes__country')
+              field: country_name
+              config:
+                severity: warn
       - name: email
         description: "{{ doc('tasty_bytes__email') }}"
       - name: phone_number

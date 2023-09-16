@@ -6,6 +6,9 @@ models:
     columns:
       - name: truck_id
         description: "{{ doc('tasty_bytes__truck_id') }}"
+        tests:
+          - not_null
+          - unique
       - name: menu_type_id
         description: "{{ doc('tasty_bytes__menu_type_id') }}"
       - name: primary_city

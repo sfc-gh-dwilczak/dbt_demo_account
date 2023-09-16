@@ -6,14 +6,29 @@ models:
     columns:
       - name: customer_id
         description: "{{ doc('tasty_bytes__customer_id') }}"
+        tests:
+          - not_null
+          - unique
       - name: first_name
         description: "{{ doc('tasty_bytes__first_name') }}"
       - name: last_name
         description: "{{ doc('tasty_bytes__last_name') }}"
       - name: city_name
         description: "{{ doc('tasty_bytes__city_name') }}"
+        tests:
+          - relationships:
+              to: ref('src_tasty_bytes__city')
+              field: city_name
+              config:
+                severity: warn
       - name: country_name
         description: "{{ doc('tasty_bytes__country_name') }}"
+        tests:
+          - relationships:
+              to: ref('src_tasty_bytes__country')
+              field: country_name
+              config:
+                severity: warn
       - name: postal_code
         description: "{{ doc('tasty_bytes__postal_code') }}"
       - name: preferred_language

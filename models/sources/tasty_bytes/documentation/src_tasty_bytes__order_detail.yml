@@ -6,10 +6,23 @@ models:
     columns:
       - name: order_detail_id
         description: "{{ doc('tasty_bytes__order_detail_id') }}"
+        tests:
+          - not_null
+          - unique
       - name: order_id
         description: "{{ doc('tasty_bytes__order_id') }}"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('src_tasty_bytes__order_headers')
+              field: order_id
       - name: menu_item_id
         description: "{{ doc('tasty_bytes__menu_item_id') }}"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('menu')
+              field: menu_item_id
       - name: discount_id
         description: "{{ doc('tasty_bytes__discount_id') }}"
       - name: line_number

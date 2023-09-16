@@ -6,12 +6,29 @@ models:
     columns:
       - name: order_id
         description: "{{ doc('tasty_bytes__order_id') }}"
+        tests:
+          - not_null
+          - unique
       - name: truck_id
         description: "{{ doc('tasty_bytes__truck_id') }}"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('src_tasty_bytes__truck')
+              field: truck_id
       - name: location_id
         description: "{{ doc('tasty_bytes__location_id') }}"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('src_tasty_bytes__location')
+              field: location_id
       - name: customer_id
         description: "{{ doc('tasty_bytes__customer_id') }}"
+        tests:
+          - relationships:
+              to: ref('src_tasty_bytes__customer')
+              field: customer_id
       - name: discount_id
         description: "{{ doc('tasty_bytes__discount_id') }}"
       - name: shift_id

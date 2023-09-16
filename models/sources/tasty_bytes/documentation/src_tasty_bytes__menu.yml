@@ -6,6 +6,9 @@ models:
     columns:
       - name: menu_id
         description: "{{ doc('tasty_bytes__menu_id') }}"
+        tests:
+          - not_null
+          - unique
       - name: menu_type_id
         description: "{{ doc('tasty_bytes__menu_type_id') }}"
       - name: menu_type
@@ -14,6 +17,9 @@ models:
         description: "{{ doc('tasty_bytes__truck_brand_name') }}"
       - name: menu_item_id
         description: "{{ doc('tasty_bytes__menu_item_id') }}"
+        tests:
+          - not_null
+          - unique
       - name: menu_item_name
         description: "{{ doc('tasty_bytes__menu_item_name') }}"
       - name: item_category

@@ -86,7 +86,7 @@ Primary key for franchises.
 Primary key for a location.
 {% enddocs %}
 
-{% docs tasty_bytes__placekey %}
+{% docs tasty_bytes__place_key %}
 Primary key for a location.
 {% enddocs %}
 

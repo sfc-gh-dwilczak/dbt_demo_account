@@ -8,7 +8,7 @@ source as (
 
 renamed as (
 
-    select
+    select distinct
         franchise_id,
         first_name,
         last_name,

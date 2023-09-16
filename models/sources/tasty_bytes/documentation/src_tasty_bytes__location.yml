@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: src_tasty_bytes__location
+    description: Location dimension.
+    columns:
+      - name: location_id
+        description: "{{ doc('tasty_bytes__location_id') }}"
+        tests:
+          - not_null
+          - unique
+      - name: place_key
+        description: "{{ doc('tasty_bytes__place_key') }}"
+        tests:
+          - not_null
+          - unique
+      - name: location_name
+        description: "{{ doc('tasty_bytes__location_name') }}"
+      - name: city_name
+        description: "{{ doc('tasty_bytes__city_name') }}"
+        tests:
+          - relationships:
+              to: ref('src_tasty_bytes__city')
+              field: city_name
+              config:
+                severity: warn
+      - name: region_name
+        description: "{{ doc('tasty_bytes__region_name') }}"
+      - name: iso_country_code
+        description: "{{ doc('tasty_bytes__iso_country_code') }}"
+        tests:
+          - relationships:
+              to: ref('src_tasty_bytes__country')
+              field: iso_country_code
+              config:
+                severity: warn
+      - name: country_name
+        description: "{{ doc('tasty_bytes__country_name') }}"
+        tests:
+          - relationships:
+              to: ref('src_tasty_bytes__country')
+              field: country_name
+              config:
+                severity: warn
