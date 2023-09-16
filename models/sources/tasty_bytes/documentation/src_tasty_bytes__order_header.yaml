@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: src_tasty_bytes__order_header
+    description: Order header fact table.
+    columns:
+      - name: order_id
+        description: "{{ doc('tasty_bytes__order_id') }}"
+      - name: truck_id
+        description: "{{ doc('tasty_bytes__truck_id') }}"
+      - name: location_id
+        description: "{{ doc('tasty_bytes__location_id') }}"
+      - name: customer_id
+        description: "{{ doc('tasty_bytes__customer_id') }}"
+      - name: discount_id
+        description: "{{ doc('tasty_bytes__discount_id') }}"
+      - name: shift_id
+        description: "{{ doc('tasty_bytes__shift_id') }}"
+      - name: shift_start_time
+        description: "{{ doc('tasty_bytes__shift_start_time') }}"
+      - name: shift_end_time
+        description: "{{ doc('tasty_bytes__shift_end_time') }}"
+      - name: order_channel
+        description: "{{ doc('tasty_bytes__order_channel') }}"
+      - name: order_ts
+        description: "{{ doc('tasty_bytes__order_ts') }}"
+      - name: served_ts
+        description: "{{ doc('tasty_bytes__served_ts') }}"
+      - name: order_currency
+        description: "{{ doc('tasty_bytes__order_currency') }}"
+      - name: order_amount
+        description: "{{ doc('tasty_bytes__order_amount') }}"
+      - name: order_tax_amount
+        description: "{{ doc('tasty_bytes__order_tax_amount') }}"
+      - name: order_discount_amount
+        description: "{{ doc('tasty_bytes__order_discount_amount') }}"
+      - name: order_total
+        description: "{{ doc('tasty_bytes__order_total') }}"

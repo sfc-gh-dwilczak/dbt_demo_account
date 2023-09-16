@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: src_tasty_bytes__franchise
+    description: Franchise dimensions.
+    columns:
+      - name: franchise_id
+        description: "{{ doc('tasty_bytes__franchise_id') }}"
+      - name: first_name
+        description: "{{ doc('tasty_bytes__first_name') }}"
+      - name: last_name
+        description: "{{ doc('tasty_bytes__last_name') }}"
+      - name: city_name
+        description: "{{ doc('tasty_bytes__city_name') }}"
+      - name: country_name
+        description: "{{ doc('tasty_bytes__country_name') }}"
+      - name: email
+        description: "{{ doc('tasty_bytes__email') }}"
+      - name: phone_number
+        description: "{{ doc('tasty_bytes__phone_number') }}"

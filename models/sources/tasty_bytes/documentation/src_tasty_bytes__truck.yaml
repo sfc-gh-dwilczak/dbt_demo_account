@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: src_tasty_bytes__truck
+    description: Truck dimensions
+    columns:
+      - name: truck_id
+        description: "{{ doc('tasty_bytes__truck_id') }}"
+      - name: menu_type_id
+        description: "{{ doc('tasty_bytes__menu_type_id') }}"
+      - name: primary_city
+        description: "{{ doc('tasty_bytes__primary_city') }}"
+      - name: region
+        description: "{{ doc('tasty_bytes__region') }}"
+      - name: iso_region
+        description: "{{ doc('tasty_bytes__iso_region') }}"
+      - name: country
+        description: "{{ doc('tasty_bytes__country') }}"
+      - name: iso_country_code
+        description: "{{ doc('tasty_bytes__iso_country_code') }}"
+      - name: franchise_flag
+        description: "{{ doc('tasty_bytes__franchise_flag') }}"
+      - name: year
+        description: "{{ doc('tasty_bytes__year') }}"
+      - name: make
+        description: "{{ doc('tasty_bytes__make') }}"
+      - name: model
+        description: "{{ doc('tasty_bytes__model') }}"
+      - name: ev_flag
+        description: "{{ doc('tasty_bytes__ev_flag') }}"
+      - name: franchise_id
+        description: "{{ doc('tasty_bytes__franchise_id') }}"
+      - name: truck_opening_date
+        description: "{{ doc('tasty_bytes__truck_opening_date') }}"
