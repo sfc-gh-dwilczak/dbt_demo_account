@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: tasty_bytes
+    database: tastybytes 
+    schema: raw_customer_v2
+    tables:
+      - name: customer
+        description: Customer dimensions.
+        identifier: customer_loyalty
