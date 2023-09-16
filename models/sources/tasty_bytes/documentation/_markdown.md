@@ -1,5 +1,5 @@
 {% docs tasty_bytes__city_id %}
-Primary key for cities.
+Primary key for a city.
 {% enddocs %}
 
 {% docs tasty_bytes__city_name %}
@@ -11,7 +11,7 @@ The city population.
 {% enddocs %}
 
 {% docs tasty_bytes__country_id %}
-Primary key for countries.
+Primary key for a country.
 {% enddocs %}
 
 {% docs tasty_bytes__country_name %}
@@ -22,12 +22,12 @@ The full name of the country.
 The ISO currency code (e.g. USD) used in that country.
 {% enddocs %}
 
-{% docs tasty_bytes__iso_country %}
-The ISO country name (e.g. US).
+{% docs tasty_bytes__iso_country_code %}
+The ISO country code (e.g. US).
 {% enddocs %}
 
 {% docs tasty_bytes__customer_id %}
-Primary key for customers.
+Primary key for a customer.
 {% enddocs %}
 
 {% docs tasty_bytes__first_name %}
@@ -71,9 +71,17 @@ Customer birthday date.
 {% enddocs %}
 
 {% docs tasty_bytes__email %}
-Customer email.
+Email address.
 {% enddocs %}
 
 {% docs tasty_bytes__phone_number %}
-Customer phone number.
+Phone number.
+{% enddocs %}
+
+{% docs tasty_bytes__franchise_id %}
+Primary key for franchises.
+{% enddocs %}
+
+{% docs tasty_bytes__location_id %}
+Primary key for a location.
 {% enddocs %}

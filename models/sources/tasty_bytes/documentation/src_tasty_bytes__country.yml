@@ -16,8 +16,8 @@ models:
           - unique
       - name: iso_currency
         description: "{{ doc('tasty_bytes__iso_currency') }}"
-      - name: iso_country
-        description: "{{ doc('tasty_bytes__iso_country') }}"
+      - name: iso_country_code
+        description: "{{ doc('tasty_bytes__iso_country_code') }}"
         tests:
           - not_null
           - unique
