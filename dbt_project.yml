@@ -32,7 +32,6 @@ models:
       sources:
         +database: sources
         +materialized: view
-        
         google:
           sheets:
             +schema: google_sheets
