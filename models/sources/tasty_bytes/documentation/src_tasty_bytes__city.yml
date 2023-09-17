@@ -23,3 +23,20 @@ models:
           - relationships:
               to: ref('src_tasty_bytes__country')
               field: country_id
+
+semantic_models:
+  - name: city
+    description: City dimensions.
+    model: ref('src_tasty_bytes__city')
+    entities:
+      - name: city
+        type: primary
+        expr: city_id
+      - name: country
+        type: foreign
+        expr: country_id
+    dimensions:
+      - name: city_name
+        type: categorical
+      - name: city_population
+        type: categorical
