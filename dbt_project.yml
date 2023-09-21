@@ -29,7 +29,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 models:
   Analytics:
-    marts:
+    semantic_layer:
       +database: semantic_layer
     sources:
       +materialized: view
