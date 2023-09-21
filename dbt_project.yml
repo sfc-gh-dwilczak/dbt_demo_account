@@ -30,6 +30,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   Analytics:
     semantic_layer:
-      +database: semantic_layer
+      metricflow:
+        +database: semantic_layer_dimensions
     sources:
       +materialized: view
