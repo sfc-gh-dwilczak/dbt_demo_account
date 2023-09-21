@@ -54,6 +54,7 @@ semantic_models:
         expr: customer_id
       - name: city
         type: foreign
+        expr: city_id
     dimensions:
       - name: sign_up_date
         type: time
@@ -82,14 +83,14 @@ semantic_models:
       - name: phone_number
         type: categorical
     measures:
-      - name: new_customers
-        description: Total customers to date.
+      - name: total_new_customers
+        description: Total new customers.
         expr: 1
         agg: sum
 
 metrics:
-  - name: new_customers
-    label: new_customers
+  - name: total_new_customers
+    label: Total new customers
     type: simple
     type_params:
-      measure: new_customers
+      measure: total_new_customers
