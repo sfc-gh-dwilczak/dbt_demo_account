@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: metricflow_time_spine
+    description: >
+      Required model for the DBT semantic layer.
+      This model generates all of the dates used by the semantic layer.
+    config:
+      materialized: table

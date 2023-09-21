@@ -13,20 +13,12 @@ models:
         description: "{{ doc('tasty_bytes__first_name') }}"
       - name: last_name
         description: "{{ doc('tasty_bytes__last_name') }}"
-      - name: city_name
-        description: "{{ doc('tasty_bytes__city_name') }}"
+      - name: city_id
+        description: "{{ doc('tasty_bytes__city_id') }}"
         tests:
           - relationships:
               to: ref('src_tasty_bytes__city')
-              field: city_name
-              config:
-                severity: warn
-      - name: country_name
-        description: "{{ doc('tasty_bytes__country_name') }}"
-        tests:
-          - relationships:
-              to: ref('src_tasty_bytes__country')
-              field: country_name
+              field: city_id
               config:
                 severity: warn
       - name: postal_code
@@ -49,3 +41,56 @@ models:
         description: "{{ doc('tasty_bytes__email') }}"
       - name: phone_number
         description: "{{ doc('tasty_bytes__phone_number') }}"
+
+semantic_models:
+  - name: customer
+    description: Customer dimensions
+    model: ref('src_tasty_bytes__customer')
+    defaults:
+      agg_time_dimension: sign_up_date
+    entities:
+      - name: customer
+        type: primary
+        expr: customer_id
+      - name: city
+        type: foreign
+        expr: city_id
+    dimensions:
+      - name: sign_up_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: first_name
+        type: categorical
+      - name: last_name
+        type: categorical
+      - name: postal_code
+        type: categorical
+      - name: preferred_language
+        type: categorical
+      - name: gender
+        type: categorical
+      - name: favourite_brand
+        type: categorical
+      - name: marital_status
+        type: categorical
+      - name: children_count
+        type: categorical
+      - name: birthday_date
+        type: categorical
+      - name: email
+        type: categorical
+      - name: phone_number
+        type: categorical
+    measures:
+      - name: total_new_customers
+        description: Total new customers.
+        expr: 1
+        agg: sum
+
+metrics:
+  - name: total_new_customers
+    label: Total new customers
+    type: simple
+    type_params:
+      measure: total_new_customers

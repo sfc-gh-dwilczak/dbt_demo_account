@@ -21,3 +21,19 @@ models:
         tests:
           - not_null
           - unique
+
+semantic_models:
+  - name: country
+    description: Country dimensions.
+    model: ref('src_tasty_bytes__country')
+    entities:
+      - name: country
+        type: primary
+        expr: country_id
+    dimensions:
+      - name: country_name
+        type: categorical
+      - name: iso_currency
+        type: categorical
+      - name: iso_country_code
+        type: categorical
