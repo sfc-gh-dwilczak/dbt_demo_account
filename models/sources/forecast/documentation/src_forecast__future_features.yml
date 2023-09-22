@@ -1,0 +1,18 @@
+models:
+    - name: src_forecast__future_features
+      description: >
+        The future_features table contains future values of the exogenous variables,
+        which are necessary when forecasting with such variables.
+      columns:
+          - name: store_id
+            description: '{{ doc("forecast__store_id") }}'
+          - name: item
+            description: '{{ doc("forecast__item") }}'
+          - name: date
+            description: '{{ doc("forecast__date") }}'
+          - name: temperature
+            description: '{{ doc("forecast__temperature") }}'
+          - name: humidity
+            description: '{{ doc("forecast__humidity") }}'
+          - name: holiday
+            description: '{{ doc("forecast__holiday") }}'
