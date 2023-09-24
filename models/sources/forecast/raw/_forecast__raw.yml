@@ -7,5 +7,4 @@ sources:
     tables:
       - name: future_features
       - name: sales_data
-      - name: cloned_sales_data
 
