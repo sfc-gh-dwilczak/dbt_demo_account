@@ -8,17 +8,13 @@ source as (
 
 renamed as (
 
-    select
-        store_id,
-        item,
-        date,
-        sales,
-        temperature,
-        humidity,
-        holiday
-
-    from source
-
+    SELECT 
+        date, sales
+    FROM
+        source
+    WHERE
+            store_id = 1
+        AND item = 'jacket'
 )
 
 select * from renamed
