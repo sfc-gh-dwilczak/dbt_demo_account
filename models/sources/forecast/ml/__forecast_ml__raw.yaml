@@ -1,8 +1,0 @@
-version: 2
-
-sources:
-  - name: forecast_ml
-    database: dbt_dev 
-    schema: dbt_dwilczak  
-    tables:
-      - name: forecast_data
