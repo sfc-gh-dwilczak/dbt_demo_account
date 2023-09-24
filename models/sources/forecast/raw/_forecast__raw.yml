@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: forecast
+    database: fivetran 
+    schema: forecast  
+    tables:
+      - name: future_features
+      - name: sales_data
+
