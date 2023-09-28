@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: forecast
-    database: fivetran 
+    database: raw 
     schema: forecast  
     tables:
       - name: future_features

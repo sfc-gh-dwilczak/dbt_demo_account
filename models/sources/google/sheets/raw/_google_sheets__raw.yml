@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: google_sheets
-    database: fivetran 
+    database: raw 
     schema: google_sheets  
     tables:
       - name: linear_regression
