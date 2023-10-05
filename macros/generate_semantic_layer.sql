@@ -73,7 +73,7 @@ semantic_layer:
 metrics:
   {%- if count %}
   - name: total_{{ name }}
-    label: totL_{{ name }}
+    label: total_{{ name }}
     type: simple
     type_params:
       measure: total_{{ name }}
@@ -85,4 +85,4 @@ metrics:
     type_params:
       measure: {{ measure }}
   {%- endfor %}
-{% endmacro %} 
+{% endmacro %}

@@ -9,7 +9,7 @@ source as (
 renamed as (
 
     select 
-        "DATE",
+        "DATE" as sold_on,
         sales
     from
         source
