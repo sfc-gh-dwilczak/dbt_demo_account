@@ -17,6 +17,7 @@ renamed as (
         credits_used_compute,
         credits_used_cloud_services,
         credits_used,
+        "ROWS" as rows_clustered,
         bytes,
         files,
         budget_id
