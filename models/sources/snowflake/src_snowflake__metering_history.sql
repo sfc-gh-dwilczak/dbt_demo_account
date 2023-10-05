@@ -26,7 +26,7 @@ renamed as (
 
 )
 
-select * from renamed qualify count(*) over (partition by ) > 1
+select * from renamed
 
 /*
 {{ generate_semantic_layer(
