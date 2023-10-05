@@ -1,0 +1,49 @@
+ersion: 2
+
+models:
+  - name: src_snowflake__metering_history
+    description: ""
+    columns:
+      - name: service_type
+        data_type: varchar
+        description: ""
+
+      - name: start_time
+        data_type: timestamp_ltz
+        description: ""
+
+      - name: end_time
+        data_type: timestamp_ltz
+        description: ""
+
+      - name: entity_id
+        data_type: number
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: credits_used_compute
+        data_type: number
+        description: ""
+
+      - name: credits_used_cloud_services
+        data_type: number
+        description: ""
+
+      - name: credits_used
+        data_type: number
+        description: ""
+
+      - name: bytes
+        data_type: number
+        description: ""
+
+      - name: files
+        data_type: number
+        description: ""
+
+      - name: budget_id
+        data_type: number
+        description: ""
