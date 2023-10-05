@@ -8,13 +8,14 @@ source as (
 
 renamed as (
 
-    SELECT 
-        date, sales
-    FROM
+    select 
+        "DATE",
+        sales
+    from
         source
-    WHERE
-            store_id = 1
-        AND item = 'jacket'
+    where
+        store_id = 1
+        and item = 'jacket'
 )
 
 select * from renamed
