@@ -1,25 +1,19 @@
 -- Predict total sales per date for the next 3 days.
-{%- set forecasting_periods = 3 -%}
+{%- set source_data = "{{ ref('src_forecast__sales_data') }}" -%}
+{%- set source_type = 'view' -%}
+{%- set predict = 'sales' -%}
+{%- set predict_using = 'sold_on' -%}
+{%- set predict_days = 3 -%}
 
-{%- set train_on -%}
-select
-    date,
-    sum(sales) as sales
-from
-    {{ ref('src_forecast__sales_data') }}
-group by
-    all
-{%- endset -%}
-
-{%- set forecast = forecast_model_hooks(
-    input_data=train_on,
-    input_type='query',
-    timestamp_colname='date',
-    target_colname='sales',
-    forecasting_periods=forecasting_periods
+{%- set forecast_hook = forecast_model_hooks(
+    input_data=source_data,
+    input_type=source_type,
+    timestamp_colname=predict_using,
+    target_colname=predict,
+    forecasting_periods=predict_days
 ) -%}
 
-{{ config(post_hook=forecast) }}
+{{ config(materialized='table', post_hook=forecast_hook) }}
 
 select
     null::timestamp_ntz as ts,
