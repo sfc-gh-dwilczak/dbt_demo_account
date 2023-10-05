@@ -5,25 +5,17 @@ forecast models as DBT models.
 Forecasting on a Single Series:
 
 -- Predict total sales per date for the next 3 days.
-{%- set train_on -%}
-select
-    date,
-    sum(sales) as sales
-from
-    {{ ref('sales') }}
-group by
-    all
-{%- endset -%}
+{%- set train_on = "{{ ref('sales') }}" -%}
 
 {%- set forecast = forecast_model_hooks(
     input_data=train_on,
-    input_type='query',
+    input_type='view',
     timestamp_colname='date',
     target_colname='sales',
     forecasting_periods=3
 ) -%}
 
-{{ config(post_hook=forecast) }}
+{{ config(materialized='table', post_hook=forecast) }}
 
 select
     null::timestamp_ntz as ts,
@@ -38,16 +30,7 @@ Forecasting on a Single Series with Exogenous Variables:
 
 -- Predict total sales per date using temperature
 -- for tomorrow assuming a temperature of 52 degrees.
-{%- set train_on -%}
-select
-    date,
-    temperature,
-    sum(sales) as sales
-from
-    {{ ref('sales') }}
-group by
-    all
-{%- endset -%}
+{%- set train_on = "{{ ref('sales') }}" -%}
 
 {%- set forecast_using -%}
 select
@@ -57,7 +40,7 @@ select
 
 {%- set forecast = forecast_model_hooks(
     input_data=train_on,
-    input_type='query',
+    input_type='view',
     timestamp_colname='date',
     target_colname='sales',
     forecast_input_data=forecast_using,
@@ -65,7 +48,7 @@ select
     forecast_timestamp_colname='date'
 ) -%}
 
-{{ config(post_hook=forecast) }}
+{{ config(materialized='table', post_hook=forecast) }}
 
 select
     null::timestamp_ntz as ts,
@@ -79,27 +62,18 @@ where
 Forecasting on Multiple Series:
 
 -- Predict total sales per store per date for the next 3 days.
-{%- set train_on -%}
-select
-    store_id,
-    date,
-    sum(sales) as sales
-from
-    {{ ref('sales') }}
-group by
-    all
-{%- endset -%}
+{%- set train_on = "{{ ref('sales') }}" -%}
 
 {%- set forecast = forecast_model_hooks(
     input_data=train_on,
-    input_type='query',
+    input_type='view',
     timestamp_colname='date',
     target_colname='sales',
     series_colname='store_id',
     forecasting_periods=3
 ) -%}
 
-{{ config(post_hook=forecast) }}
+{{ config(materialized='table', post_hook=forecast) }}
 
 select
     -- Assuming store_id is an integer.
@@ -117,17 +91,7 @@ Forecasting on Multiple Series with Exogenous Variables:
 -- Predict total sales per store per date using temperature
 -- for tomorrow assuming a temperature of 51 degrees for store 1
 -- and 54 degrees for store 2.
-{%- set train_on -%}
-select
-    store_id,
-    date,
-    temperature,
-    sum(sales) as sales
-from
-    {{ ref('sales') }}
-group by
-    all
-{%- endset -%}
+{%- set train_on = "{{ ref('sales') }}" -%}
 
 {%- set forecast_using -%}
 select
@@ -145,7 +109,7 @@ select
 
 {%- set forecast = forecast_model_hooks(
     input_data=train_on,
-    input_type='query',
+    input_type='view',
     timestamp_colname='date',
     target_colname='sales',
     series_colname='store_id',
@@ -155,7 +119,7 @@ select
     forecast_series_colname='store_id'
 ) -%}
 
-{{ config(post_hook=forecast) }}
+{{ config(materialized='table', post_hook=forecast) }}
 
 select
     -- Assuming store_id is an integer.
@@ -181,13 +145,7 @@ where
     forecast_series_colname=none
 ) %}
 
-{% set input_type = input_type.upper() %}
-
-{% if input_type == "QUERY" %}
-    {% set input_data = "SYSTEM$QUERY_REFERENCE('" ~ input_data ~ "')" %}
-{% elif input_type in ["TABLE", "VIEW"] %}
-    {% set input_data = "SYSTEM$REFERENCE('" ~ input_type ~ "', '" ~ input_data ~ "')" %}
-{% endif %}
+{% set input_data = "SYSTEM$REFERENCE('" ~ input_type.upper() ~ "', '" ~ input_data ~ "')" %}
 
 {% if series_colname is none %}
     {% set series_colname = "" %}
