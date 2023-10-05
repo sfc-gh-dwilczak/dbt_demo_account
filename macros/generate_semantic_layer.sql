@@ -6,7 +6,7 @@
     time=none,
     granularity='day',
     dimensions=[],
-    count=false,
+    count=none,
     maxs=[],
     mins=[],
     sums=[]
@@ -42,14 +42,14 @@ semantic_layer:
       {%- endfor %}
     {%- endif %}
     {%- if
-      count
+      count is not none
       or maxs != []
       or mins != []
       or sums != []
     %}
     measures:
-      {%- if count %}
-      - name: total_{{ name }}
+      {%- if count is not none %}
+      - name: {{ count }}
         expr: 1
         agg: sum
       {%- endif %}
@@ -71,12 +71,12 @@ semantic_layer:
     {%- endif %}
 
 metrics:
-  {%- if count %}
-  - name: total_{{ name }}
-    label: total_{{ name }}
+  {%- if count is not none %}
+  - name: {{ count }}
+    label: {{ count }}
     type: simple
     type_params:
-      measure: total_{{ name }}
+      measure: {{ count }}
   {%- endif %}
   {%- for measure in (maxs + mins + sums) %}
   - name: {{ measure }}
