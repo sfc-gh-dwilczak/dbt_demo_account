@@ -52,3 +52,116 @@ models:
       - name: budget_id
         data_type: number
         description: '{{ doc("snowflake__budget_id") }}'
+
+semantic_models:
+  - name: account_metering
+    description: >
+      The METERING_HISTORY view in the ACCOUNT_USAGE schema can be used to return 
+      the hourly credit usage for an account within the last 365 days (1 year).
+    model: ref('src_snowflake__metering_history')
+    defaults:
+      agg_time_dimension: start_date
+    primary_entity: account_metering
+    dimensions:
+      - name: start_date
+        expr: start_time::date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: service_type
+        description: >
+          Type of service that is consuming credits, which can be one of the following:
+            AUTO_CLUSTERING — Refer to Automatic Clustering.
+            MATERIALIZED_VIEW — Refer to Working with Materialized Views.
+            PIPE — Refer to Snowpipe.
+            QUERY_ACCELERATION — Refer to Using the Query Acceleration Service.
+            REPLICATION — Refer to Introduction to Replication and Failover.
+            SEARCH_OPTIMIZATION — Refer to Using the Search Optimization Service.
+            SERVERLESS_TASK — Refer to Introduction to Tasks.
+            SNOWPIPE_STREAMING — Refer to Snowpipe Streaming.
+            WAREHOUSE_METERING — Refer to Overview of Warehouses.
+            WAREHOUSE_METERING_READER — Refer to Managing reader accounts.
+        type: categorical
+      - name: service
+        description: >
+          Name of the service type. When the service type is SNOWPIPE_STREAMING, there
+          are two cost entries. One entry is for the name of the Snowflake Table object
+          and the other one is for the colon separated Snowpipe Streaming, CLIENT_NAME
+          and SNOWFLAKE_PROVIDED_ID.
+        type: categorical
+        expr: name
+    measures:
+      - name: total_elapsed_seconds
+        agg: sum
+        expr: DATEDIFF(second, start_time, end_time )
+      - name: longest_elapsed_seconds
+        agg: max
+        expr: DATEDIFF(second, start_time, end_time )
+      
+      - name: total_credits_used_compute
+        agg: sum
+        expr: credits_used_compute
+      - name: max_credits_used_compute
+        agg: max
+        expr: credits_used_compute
+
+      - name: total_credits_used_cloud_services
+        agg: sum
+        expr: credits_used_cloud_services
+      - name: max_credits_used_cloud_services
+        agg: max
+        expr: credits_used_cloud_services
+
+      - name: total_credits_used
+        agg: sum
+        expr: credits_used
+      - name: max_credits_used
+        agg: max
+        expr: credits_used
+
+      - name: total_bytes_loaded
+        agg: sum
+        expr: bytes
+      - name: total_files_loaded
+        agg: sum
+        expr: files
+
+metrics:
+  - name: total_elapsed_seconds
+    description: Sum of total elapsed seconds which is end - start time.
+    type: simple
+    label: total elapsed seconds
+    type_params: 
+      measure: total_elapsed_seconds
+
+  - name: total_credits_used_compute
+    type: simple
+    label: total credits used compute
+    type_params: 
+      measure: total_credits_used_compute
+
+  - name: total_credits_used_cloud_services
+    type: simple
+    label: total credits used cloud services
+    type_params: 
+      measure: total_credits_used_cloud_services
+
+  - name: total_credits_used
+    type: simple
+    label: total credits used
+    type_params: 
+      measure: total_credits_used
+
+  - name: total_bytes_loaded
+    type: simple
+    label: total bytes loaded
+    type_params: 
+      measure: total_bytes_loaded
+
+  - name: total_files_loaded
+    type: simple
+    label: total files loaded
+    type_params: 
+      measure: total_files_loaded
+  
+      
