@@ -27,3 +27,15 @@ renamed as (
 )
 
 select * from renamed
+
+/*
+{{ generate_semantic_layer(
+    name='metering_history',
+    references=this,
+    time='start_time',
+    dimensions=['name', 'service_type'],
+    count='',
+    sums=['credits_used', 'credits_used_compute', 'credits_used_cloud_services']
+) }}
+  
+*/
