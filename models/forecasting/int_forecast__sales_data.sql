@@ -13,7 +13,7 @@
     forecasting_periods=predict_days
 ) -%}
 
-{{ config(materialized='table', post_hook=forecast_hook) }}
+
 
 select
     null::timestamp_ntz as ts,
