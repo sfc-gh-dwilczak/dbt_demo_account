@@ -75,10 +75,6 @@ semantic_models:
         description: '{{ doc("snowflake__name") }}'
         type: categorical
         expr: name
-      - name: is_total_files_loaded_not_null
-        description: Returns true if the total files in not null.
-        type: categorical
-        expr: files is not null
 
     measures:
       - name: total_elapsed_seconds
@@ -158,7 +154,7 @@ metrics:
     type_params: 
       measure: total_files_loaded
     filter: | 
-        {{Dimension('account_metering__is_total_files_loaded_not_null')}} = true
+        total_files_loaded is not null
 
   
   
