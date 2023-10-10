@@ -76,6 +76,7 @@ semantic_models:
         type: categorical
         expr: name
       - name: is_total_files_loaded_not_null
+        description: Returns true if the total files in not null.
         type: categorical
         expr: files is not null
 
@@ -156,8 +157,8 @@ metrics:
     label: total files loaded
     type_params: 
       measure: total_files_loaded
-    filter: | # For any metric you can optionally include a filter on dimension values
-        {{Dimension('customer__order_total_dim')}} >= 20
+    filter: | 
+        {{Dimension('is_total_files_loaded_not_null')}} = true
 
   
   
