@@ -69,38 +69,31 @@ semantic_models:
         type_params:
           time_granularity: day
       - name: service_type
-        description: >
-          Type of service that is consuming credits, which can be one of the following:
-            AUTO_CLUSTERING — Refer to Automatic Clustering.
-            MATERIALIZED_VIEW — Refer to Working with Materialized Views.
-            PIPE — Refer to Snowpipe.
-            QUERY_ACCELERATION — Refer to Using the Query Acceleration Service.
-            REPLICATION — Refer to Introduction to Replication and Failover.
-            SEARCH_OPTIMIZATION — Refer to Using the Search Optimization Service.
-            SERVERLESS_TASK — Refer to Introduction to Tasks.
-            SNOWPIPE_STREAMING — Refer to Snowpipe Streaming.
-            WAREHOUSE_METERING — Refer to Overview of Warehouses.
-            WAREHOUSE_METERING_READER — Refer to Managing reader accounts.
+        description: '{{ doc("snowflake__service_type") }}'
         type: categorical
       - name: service
-        description: >
-          Name of the service type. When the service type is SNOWPIPE_STREAMING, there
-          are two cost entries. One entry is for the name of the Snowflake Table object
-          and the other one is for the colon separated Snowpipe Streaming, CLIENT_NAME
-          and SNOWFLAKE_PROVIDED_ID.
+        description: '{{ doc("snowflake__name") }}'
         type: categorical
         expr: name
+      - name: is_total_files_loaded_not_null
+        type: categorical
+        expr: files is not null
+
     measures:
       - name: total_elapsed_seconds
+        description: End time - start time for in which the usage took place.
         agg: sum
         expr: DATEDIFF(second, start_time, end_time )
+
       - name: longest_elapsed_seconds
+        description: Longest running
         agg: max
         expr: DATEDIFF(second, start_time, end_time )
       
       - name: total_credits_used_compute
         agg: sum
         expr: credits_used_compute
+
       - name: max_credits_used_compute
         agg: max
         expr: credits_used_compute
@@ -163,5 +156,9 @@ metrics:
     label: total files loaded
     type_params: 
       measure: total_files_loaded
+    filter: | # For any metric you can optionally include a filter on dimension values
+        {{Dimension('customer__order_total_dim')}} >= 20
+
+  
   
       
