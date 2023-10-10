@@ -75,7 +75,7 @@ semantic_models:
         description: '{{ doc("snowflake__name") }}'
         type: categorical
         expr: name
-      - name: is_total_files_loaded_null
+      - name: is_total_files_loaded_not_null
         type: categorical
         expr: files is not null
 
