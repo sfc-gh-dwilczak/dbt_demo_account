@@ -28,9 +28,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 models:
-  Analytics:
-    semantic_layer:
-      metricflow:
-        +database: semantic_layer_dimensions
-    sources:
-      +materialized: view
+  project:
+    internal:
+      +database: dbt_internal_datasets
+    warehouse:
+      +database: data_warehouse
+      +materialized: table
+    reporting:
+      +database: reporting_datasets
+      +materialized: table

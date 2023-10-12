@@ -1,6 +1,10 @@
+{% if target.name == 'production' %}
+    {{ config(database='data_warehouse', schema='semantic_layer', alias='metricflow_time_spine') }}
+{% endif %}
+
 with
-    customer as (select * from {{ ref('src_tasty_bytes__customer') }}),
-    orders as (select * from {{ ref('src_tasty_bytes__order_header') }}),
+    customer as (select * from {{ ref('stg_tasty_bytes__customer') }}),
+    orders as (select * from {{ ref('stg_tasty_bytes__order_header') }}),
 
     start_dates as (
         select

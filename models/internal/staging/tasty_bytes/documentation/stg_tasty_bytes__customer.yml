@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: src_tasty_bytes__customer
+  - name: stg_tasty_bytes__customer
     description: Customer dimensions.
     columns:
       - name: customer_id
@@ -17,7 +17,7 @@ models:
         description: "{{ doc('tasty_bytes__city_id') }}"
         tests:
           - relationships:
-              to: ref('src_tasty_bytes__city')
+              to: ref('stg_tasty_bytes__city')
               field: city_id
               config:
                 severity: warn

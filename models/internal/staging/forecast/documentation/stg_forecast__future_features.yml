@@ -1,5 +1,5 @@
 models:
-    - name: src_forecast__future_features
+    - name: stg_forecast__future_features
       description: >
         The future_features table contains future values of the exogenous variables,
         which are necessary when forecasting with such variables.

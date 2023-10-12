@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: src_tasty_bytes__country
+  - name: stg_tasty_bytes__country
     description: Country dimensions.
     columns:
       - name: country_id

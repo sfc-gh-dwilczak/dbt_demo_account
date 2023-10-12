@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: src_tasty_bytes__city
+  - name: stg_tasty_bytes__city
     description: City dimensions.
     columns:
       - name: city_id
@@ -21,5 +21,5 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('src_tasty_bytes__country')
+              to: ref('stg_tasty_bytes__country')
               field: country_id

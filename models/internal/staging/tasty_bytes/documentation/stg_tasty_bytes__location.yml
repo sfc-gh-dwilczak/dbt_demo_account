@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: src_tasty_bytes__location
+  - name: stg_tasty_bytes__location
     description: Location dimension.
     columns:
       - name: location_id
@@ -30,7 +30,7 @@ models:
         description: "{{ doc('tasty_bytes__iso_country_code') }}"
         tests:
           - relationships:
-              to: ref('src_tasty_bytes__country')
+              to: ref('stg_tasty_bytes__country')
               field: iso_country_code
               config:
                 severity: warn
@@ -38,7 +38,7 @@ models:
         description: "{{ doc('tasty_bytes__country_name') }}"
         tests:
           - relationships:
-              to: ref('src_tasty_bytes__country')
+              to: ref('stg_tasty_bytes__country')
               field: country_name
               config:
                 severity: warn

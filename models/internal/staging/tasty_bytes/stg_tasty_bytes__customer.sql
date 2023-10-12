@@ -1,6 +1,6 @@
 with
     source as (select * from {{ source('tasty_bytes', 'customer') }}),
-    city as (select * from {{ ref('src_tasty_bytes__city') }}),
+    city as (select * from {{ ref('stg_tasty_bytes__city') }}),
 
     renamed as (
         select

@@ -1,5 +1,5 @@
 models:
-    - name: src_forecast__sales_data
+    - name: stg_forecast__sales_data
       description: >
           This sales_data table contains sales data. Each sale includes a store ID, an
           item identifier, a timestamp, and the sales amount. Exogenous or external
