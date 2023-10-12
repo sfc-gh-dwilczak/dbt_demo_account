@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: fct_google_sheets__linear_regression
+    description: X Y data for linear regression models.
+    
+    columns:
+      - name: x
+        data_type: number
+        description: '{{ doc("google_sheets__x") }}'
+        tests:
+            - not_null
+
+      - name: y
+        data_type: number
+        description: '{{ doc("google_sheets__y") }}'
+        tests:
+            - not_null

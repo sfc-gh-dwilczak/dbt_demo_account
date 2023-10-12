@@ -1,12 +1,12 @@
 semantic_models:
   - name: account_metering
+    model: ref('fct_snowflake__metering_history')
     description: >
       The METERING_HISTORY view in the ACCOUNT_USAGE schema can be used to return 
       the hourly credit usage for an account within the last 365 days (1 year).
-    model: ref('stg_snowflake__metering_history')
-    defaults:
-      agg_time_dimension: start_date
+    
     primary_entity: account_metering
+
     dimensions:
       - name: start_date
         expr: start_time::date
@@ -20,6 +20,9 @@ semantic_models:
         description: '{{ doc("snowflake__name") }}'
         type: categorical
         expr: name
+    
+    defaults:
+      agg_time_dimension: start_date
 
     measures:
       - name: total_elapsed_seconds
@@ -86,8 +89,6 @@ metrics:
     label: total credits used
     type_params: 
       measure: total_credits_used
-    filter: | 
-        total_credits_used > 1
 
   - name: total_bytes_loaded
     type: simple
@@ -102,6 +103,3 @@ metrics:
       measure: total_files_loaded
     filter: | 
         total_files_loaded is not null
-
-  
-  

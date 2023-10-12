@@ -10,7 +10,7 @@ The produced y data from x input.
 The row number for when it was entered into snowflake via fivetran.
 {% enddocs %}
 
-{% docs google_sheets___FIVETRAN_SYNCED %}
+{% docs google_sheets___fivetran_synced %}
 Timestamp when fivetran ingested the data from sheets.
 {% enddocs %}
 
