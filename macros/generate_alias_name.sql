@@ -2,7 +2,7 @@
     {% if custom_alias_name is not none %}
         {{ return(custom_alias_name) }}
     {% elif target.name == 'production' %}
-        {{ return((((node.name | split("__"))[0] | split("_"))[0]) ~ ((node.name | split("__"))[1:] | join("__"))) }}
+        {{ return((node.name.split("__")[0].split("_")[0]) ~ (node.name.split("__")[1:].join("__"))) }}
     {% else %}
         {{ return(node.name) }}
     {% endif %}
