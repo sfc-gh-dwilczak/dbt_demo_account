@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: src_tasty_bytes__order_detail_id
+  - name: stg_tasty_bytes__order_detail_id
     description: Orders detail dimensions.
     columns:
       - name: order_detail_id
@@ -14,7 +14,7 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('src_tasty_bytes__order_headers')
+              to: ref('stg_tasty_bytes__order_headers')
               field: order_id
       - name: menu_item_id
         description: "{{ doc('tasty_bytes__menu_item_id') }}"

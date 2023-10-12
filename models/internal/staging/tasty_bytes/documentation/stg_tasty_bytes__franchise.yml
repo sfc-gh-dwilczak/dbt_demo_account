@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: src_tasty_bytes__franchise
+  - name: stg_tasty_bytes__franchise
     description: Franchise dimensions.
     tests:
       - dbt_utils.unique_combination_of_columns:
@@ -21,7 +21,7 @@ models:
         description: "{{ doc('tasty_bytes__city_name') }}"
         tests:
           - relationships:
-              to: ref('src_tasty_bytes__city')
+              to: ref('stg_tasty_bytes__city')
               field: city_name
               config:
                 severity: warn
@@ -29,7 +29,7 @@ models:
         description: "{{ doc('tasty_bytes__country_name') }}"
         tests:
           - relationships:
-              to: ref('src_tasty_bytes__country')
+              to: ref('stg_tasty_bytes__country')
               field: country_name
               config:
                 severity: warn

@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: src_tasty_bytes__menu
+  - name: stg_tasty_bytes__menu
     description: Menu dimension.
     columns:
       - name: menu_id

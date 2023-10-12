@@ -1,5 +1,5 @@
 models:
-    - name: src_google_sheets__linear_regression
+    - name: stg_google_sheets__linear_regression
       description: X Y data for linear regression models.
       columns:
           - name: X

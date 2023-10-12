@@ -1,7 +1,9 @@
-{% macro generate_alias_name(custom_alias_name=none, node=none) %}
-    {% if target.name == 'production' %}
-        {{ return(custom_alias_name or node.name.split('__')[-1]) }}
+{% macro generate_alias_name(custom_alias_name, node) %}
+    {% if custom_alias_name is not none %}
+        {{ return(custom_alias_name) }}
+    {% elif target.name == 'production' %}
+        {{ return((((node.name | split("__"))[0] | split("_"))[0]) ~ ((node.name | split("__"))[1:] | join("__"))) }}
     {% else %}
-        {{ return(custom_alias_name or node.name) }}
+        {{ return(node.name) }}
     {% endif %}
 {% endmacro %}

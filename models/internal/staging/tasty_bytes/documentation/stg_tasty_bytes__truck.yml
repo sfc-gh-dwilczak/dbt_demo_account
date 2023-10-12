@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: src_tasty_bytes__truck
+  - name: stg_tasty_bytes__truck
     description: Truck dimensions
     columns:
       - name: truck_id
