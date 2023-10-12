@@ -1,1 +1,1 @@
-select * from {{ ref('fct_tasty_bytes__order_header') }}
+select * from {{ ref('stg_tasty_bytes__order_header') }}
