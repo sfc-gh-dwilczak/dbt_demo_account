@@ -103,4 +103,3 @@ metrics:
       measure: total_files_loaded
     filter: | 
         total_files_loaded is not null
-        
