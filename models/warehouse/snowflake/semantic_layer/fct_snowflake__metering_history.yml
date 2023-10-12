@@ -89,6 +89,8 @@ metrics:
     label: total credits used
     type_params: 
       measure: total_credits_used
+    filter: | 
+        total_credits_used > 1
 
   - name: total_bytes_loaded
     type: simple
