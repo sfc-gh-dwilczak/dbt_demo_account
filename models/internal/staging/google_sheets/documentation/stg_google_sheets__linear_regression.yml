@@ -2,19 +2,19 @@ models:
     - name: stg_google_sheets__linear_regression
       description: X Y data for linear regression models.
       columns:
-          - name: X
+          - name: x
             description: '{{ doc("google_sheets__x") }}'
             tests:
                 - not_null
-          - name: Y
+          - name: y
             description: '{{ doc("google_sheets__y") }}'
             tests:
                 - not_null
-          - name: _ROW
+          - name: _row
             description: '{{ doc("google_sheets___row") }}'
             tests:
                 - not_null
-          - name: _FIVETRAN_SYNCED
-            description: '{{ doc("google_sheets___FIVETRAN_SYNCED") }}'
+          - name: _fivetran_synced
+            description: '{{ doc("google_sheets___fivetran_synced") }}'
             tests:
                 - not_null

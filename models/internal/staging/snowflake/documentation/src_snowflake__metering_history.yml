@@ -52,6 +52,3 @@ models:
       - name: budget_id
         data_type: number
         description: '{{ doc("snowflake__budget_id") }}'
-
-
-      
