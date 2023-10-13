@@ -2,9 +2,8 @@ version: 2
 
 models:
   - name: stg_snowflake__metering_history
-    description: >
-      The METERING_HISTORY view in the ACCOUNT_USAGE schema can be used to return 
-      the hourly credit usage for an account within the last 365 days (1 year).
+    description:  '{{ doc("snowflake__metering_history") }}'
+      
     columns:
       - name: service_type
         data_type: varchar

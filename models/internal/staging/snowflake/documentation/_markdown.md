@@ -1,3 +1,17 @@
+{% docs snowflake__metering_history%}
+The METERING_HISTORY view in the ACCOUNT_USAGE schema can be used to return 
+the hourly credit usage for an account within the last 365 days (1 year).
+{% enddocs %}
+
+{% docs snowflake__warehouse_metering_history %}
+This Account Usage view can be used to return the hourly credit usage
+for a single warehouse (or all the warehouses in your account) within
+the last 365 days (1 year).
+{% enddocs %}
+
+
+
+
 {% docs snowflake__service_type %}
 Type of service that is consuming credits, which can be one of the following:
 
@@ -66,4 +80,13 @@ When the service type is pipe, indicates number of files loaded during the START
 Reserved for future use.
 {% enddocs %}
 
+{% docs snowflake__warehouse_id %}
+Internal/system-generated identifier for the warehouse.
+{% enddocs %}
 
+{% docs snowflake__warehouse_name %}
+Name of the warehouse.
+{% enddocs %}
+
+{% docs snowflake__total_elapsed_seconds %} End time - start time for in which the usage took place.{% enddocs %}
+{% docs snowflake__longest_elapsed_seconds %} Longest running in seconds.{% enddocs %}
