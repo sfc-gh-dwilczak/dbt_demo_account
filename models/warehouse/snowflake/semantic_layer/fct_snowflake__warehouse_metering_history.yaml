@@ -1,0 +1,90 @@
+semantic_models:
+  - name: warehouse_metering
+    model: ref('fct_snowflake__warehouse_metering_history')
+    description:  '{{ doc("snowflake__warehouse_metering_history") }}'
+    primary_entity: warehouse_metering
+
+    dimensions:
+      - name: start_date
+        expr: start_time::date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: warehouse_name
+        description: '{{ doc("snowflake__warehouse_name") }}'
+        type: categorical
+      - name: warehouse_id
+        description: '{{ doc("snowflake__warehouse_id") }}'
+        type: categorical
+        expr: name
+    
+    defaults:
+      agg_time_dimension: start_date
+
+    measures:
+      - name: warehouse_metering_total_elapsed_seconds
+        description: '{{ doc("snowflake__total_elapsed_seconds") }}'
+        agg: sum
+        expr: DATEDIFF(second, start_time, end_time )
+
+      - name: warehouse_metering_longest_elapsed_seconds
+        description: '{{ doc("snowflake__longest_elapsed_seconds") }}'
+        agg: max
+        expr: DATEDIFF(second, start_time, end_time )
+      
+      - name: warehouse_metering_total_credits_used_compute
+        description: '{{ doc("snowflake__credits_used_compute") }}'
+        agg: sum
+        expr: credits_used_compute
+
+      - name: warehouse_metering_max_credits_used_compute
+        description: '{{ doc("snowflake__credits_used_compute") }}'
+        agg: max
+        expr: credits_used_compute
+
+      - name: warehouse_metering_total_credits_used_cloud_services
+        description: '{{ doc("snowflake__credits_used_cloud_services") }}'
+        agg: sum
+        expr: credits_used_cloud_services
+
+      - name: warehouse_metering_max_credits_used_cloud_services
+        description: '{{ doc("snowflake__credits_used_cloud_services") }}'
+        agg: max
+        expr: credits_used_cloud_services
+
+      - name: warehouse_metering_total_credits_used
+        description: '{{ doc("snowflake__credits_used") }}'
+        agg: sum
+        expr: credits_used
+      - name: warehouse_metering_max_credits_used
+        description: '{{ doc("snowflake__credits_used") }}'
+        agg: max
+        expr: credits_used
+
+metrics:
+  - name: warehouse_metering_total_elapsed_seconds
+    description: Sum of total elapsed seconds which is end - start time.
+    type: simple
+    label: total elapsed seconds
+    type_params: 
+      measure: warehouse_metering_total_elapsed_seconds
+
+  - name: warehouse_metering_total_credits_used_compute
+    type: simple
+    label: total credits used compute
+    type_params: 
+      measure: warehouse_metering_total_credits_used_compute
+
+  - name: warehouse_metering_total_credits_used_cloud_services
+    type: simple
+    label: total credits used cloud services
+    type_params: 
+      measure: warehouse_metering_total_credits_used_cloud_services
+
+  - name: warehouse_metering_total_credits_used
+    type: simple
+    label: total credits used
+    type_params: 
+      measure: warehouse_metering_total_credits_used
+    filter: | 
+        warehouse_metering_total_credits_used > 1
