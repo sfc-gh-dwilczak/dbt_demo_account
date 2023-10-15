@@ -3,20 +3,28 @@ version: 2
 models:
   - name: stg_tasty_bytes__city
     description: City dimensions.
+    
     columns:
       - name: city_id
+        data_type: number
         description: "{{ doc('tasty_bytes__city_id') }}"
         tests:
           - not_null
           - unique
-      - name: city_name
+      
+      - name: name
+        data_type: varchar
         description: "{{ doc('tasty_bytes__city_name') }}"
         tests:
           - not_null
           - unique
-      - name: city_population
+      
+      - name: population
+        data_type: number
         description: "{{ doc('tasty_bytes__city_population') }}"
+      
       - name: country_id
+        data_type: number
         description: "{{ doc('tasty_bytes__country_id') }}"
         tests:
           - not_null

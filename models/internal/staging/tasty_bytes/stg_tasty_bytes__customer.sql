@@ -22,7 +22,7 @@ with
             source
         left join
             city
-                on city.city_name = source.city
+                on city.name = source.city
     )
 
 select * from renamed

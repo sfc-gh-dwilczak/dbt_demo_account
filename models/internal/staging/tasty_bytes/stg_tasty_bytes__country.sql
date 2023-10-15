@@ -10,7 +10,7 @@ renamed as (
 
     select distinct
         country_id,
-        country as country_name,
+        country as name,
         iso_currency,
         iso_country as iso_country_code
 

@@ -22,7 +22,7 @@ models:
         tests:
           - relationships:
               to: ref('stg_tasty_bytes__city')
-              field: city_name
+              field: name
               config:
                 severity: warn
       - name: country_name
@@ -30,7 +30,7 @@ models:
         tests:
           - relationships:
               to: ref('stg_tasty_bytes__country')
-              field: country_name
+              field: name
               config:
                 severity: warn
       - name: email

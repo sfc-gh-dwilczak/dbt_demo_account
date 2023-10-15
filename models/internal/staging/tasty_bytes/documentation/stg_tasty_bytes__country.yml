@@ -9,7 +9,7 @@ models:
         tests:
           - not_null
           - unique
-      - name: country_name
+      - name: name
         description: "{{ doc('tasty_bytes__country_name') }}"
         tests:
           - not_null
