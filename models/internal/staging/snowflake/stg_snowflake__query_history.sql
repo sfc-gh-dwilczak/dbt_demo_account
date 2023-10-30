@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('snowflake', 'query_history') }}
+    select * from {{ ref('src_snowflake__query_history') }}
 
 ),
 
@@ -13,11 +13,11 @@ renamed as (
         query_text,
         database_id,
         database_name,
-        schema_id,
-        schema_name,
+        "SCHEMA_ID",
+        "SCHEMA_NAME",
         query_type,
         session_id,
-        user_name,
+        "USER_NAME",
         role_name,
         warehouse_id,
         warehouse_name,
@@ -27,7 +27,7 @@ renamed as (
         query_tag,
         execution_status,
         error_code,
-        error_message,
+        "ERROR_MESSAGE",
         start_time,
         end_time,
         total_elapsed_time,

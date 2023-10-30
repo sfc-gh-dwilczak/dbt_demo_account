@@ -1,5 +1,5 @@
 with
-    source as (select * from {{ source('tasty_bytes', 'customer') }}),
+    source as (select * from {{ ref('src_tasty_bytes__customer') }}),
     city as (select * from {{ ref('stg_tasty_bytes__city') }}),
 
     renamed as (

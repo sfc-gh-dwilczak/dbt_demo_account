@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('tasty_bytes', 'city') }}
+    select * from {{ ref('src_tasty_bytes__city') }}
 
 ),
 

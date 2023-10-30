@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('snowflake', 'metering_history') }}
+    select * from {{ ref('src_snowflake__metering_history') }}
 
 ),
 
