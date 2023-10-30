@@ -1,3 +1,5 @@
+version: 2
+
 semantic_models:
   - name: account_metering
     model: ref('fct_snowflake__metering_history')
