@@ -4,7 +4,9 @@
     {% else %}
         {% set suffix = '_v' ~ node.version %}
     {% endif %}
-    {% if custom_alias_name is not none %}
+    {% if node.name == 'metricflow_time_spine' %}
+        {{ return(node.name) }}
+    {% elif custom_alias_name is not none %}
         {{ return(custom_alias_name ~ suffix) }}
     {% elif target.name == 'production' %}
         {{ return(
