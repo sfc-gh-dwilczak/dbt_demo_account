@@ -30,11 +30,11 @@ models:
   Analytics:
     internal:
       +database: dbt_internal
+    reporting:
+      +database: data_reports
+      +materialized: table
     warehouse:
       +database: data_warehouse
-      +materialized: table
-    data_reports:
-      +database: data_reports
       +materialized: table
 
 snapshots:

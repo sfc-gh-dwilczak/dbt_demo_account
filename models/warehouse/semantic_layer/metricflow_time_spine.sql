@@ -3,8 +3,8 @@
 {% endif -%}
 
 with
-    future_features as (select * from {{ ref('stg_forecast__future_features') }}),
-    sales_data as (select * from {{ ref('stg_forecast__sales_data') }}),
+    --future_features as (select * from {# ref('stg_forecast__future_features') #}),
+    --sales_data as (select * from {# ref('stg_forecast__sales_data') #}),
     metering_history as (select * from {{ ref('stg_snowflake__metering_history') }}),
     query_history as (select * from {{ ref('stg_snowflake__query_history') }}),
     stage_storage_usage_history as (select * from {{ ref('stg_snowflake__stage_storage_usage_history') }}),
@@ -13,6 +13,7 @@ with
     orders as (select * from {{ ref('stg_tasty_bytes__order_header') }}),
 
     date_ranges as (
+        /*
         select
             min("DATE"::date) as start_on,
             max("DATE"::date) as stop_on
@@ -28,7 +29,7 @@ with
             sales_data
         
         union all
-
+        */
         select
             min(start_time::date) as start_on,
             max(end_time::date) as stop_on
