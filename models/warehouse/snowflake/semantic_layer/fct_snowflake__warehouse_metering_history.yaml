@@ -1,3 +1,5 @@
+version: 2
+
 semantic_models:
   - name: warehouse_metering
     model: ref('fct_snowflake__warehouse_metering_history')
