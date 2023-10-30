@@ -44,6 +44,17 @@ snapshots:
     +strategy: check
     +check_cols: all
 
+    snowflake:
+      +check_cols: ['dbt_check_col']
+      scd_snowflake__metering_history:
+        +unique_key: metering_history_id
+      scd_snowflake__query_history:
+        +unique_key: query_id
+      scd_snowflake__stage_storage_usage_history:
+        +unique_key: usage_date
+      scd_snowflake__warehouse_metering_history:
+        +unique_key: warehouse_metering_history_id
+
     tasty_bytes:
       scd_tasty_bytes__city:
         +unique_key: city_id
