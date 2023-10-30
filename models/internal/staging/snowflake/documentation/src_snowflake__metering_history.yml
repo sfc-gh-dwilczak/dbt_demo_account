@@ -34,8 +34,9 @@ models:
       - name: bytes
         data_type: number
 
-      - name: rows
+      - name: "ROWS"
         data_type: number
+        quote: true
 
       - name: files
         data_type: number
