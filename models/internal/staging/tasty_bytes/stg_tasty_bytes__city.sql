@@ -6,11 +6,12 @@ with
             city_id,
             city as name,
             city_population as population,
-            country_id
+            country_id,
+            country,
+            iso_currency,
+            iso_country as iso_country_code
         from
             source
     )
 
 select * from renamed
-
-
