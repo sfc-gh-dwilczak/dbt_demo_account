@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: tasty_bytes
-    database: share_tastybytes 
+    database: share_tasty_bytes 
     schema: raw_customer_v2
     tables:
       - name: customer

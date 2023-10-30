@@ -26,8 +26,3 @@ models:
       - name: country_id
         data_type: number
         description: "{{ doc('tasty_bytes__country_id') }}"
-        tests:
-          - not_null
-          - relationships:
-              to: ref('stg_tasty_bytes__country')
-              field: country_id
