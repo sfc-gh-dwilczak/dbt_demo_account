@@ -1,0 +1,218 @@
+version: 2
+
+models:
+  - name: src_snowflake__query_history
+    config:
+      contract:
+        enforced: true
+    
+    columns:
+      - name: query_id
+        data_type: varchar
+
+      - name: query_text
+        data_type: varchar
+
+      - name: database_id
+        data_type: number
+
+      - name: database_name
+        data_type: varchar
+
+      - name: schema_id
+        data_type: number
+
+      - name: schema_name
+        data_type: varchar
+
+      - name: query_type
+        data_type: varchar
+
+      - name: session_id
+        data_type: number
+
+      - name: user_name
+        data_type: varchar
+
+      - name: role_name
+        data_type: varchar
+
+      - name: warehouse_id
+        data_type: number
+
+      - name: warehouse_name
+        data_type: varchar
+
+      - name: warehouse_size
+        data_type: varchar
+
+      - name: warehouse_type
+        data_type: varchar
+
+      - name: cluster_number
+        data_type: number
+
+      - name: query_tag
+        data_type: varchar
+
+      - name: execution_status
+        data_type: varchar
+
+      - name: error_code
+        data_type: varchar
+
+      - name: error_message
+        data_type: varchar
+
+      - name: start_time
+        data_type: timestamp_ltz
+
+      - name: end_time
+        data_type: timestamp_ltz
+
+      - name: total_elapsed_time
+        data_type: number
+
+      - name: bytes_scanned
+        data_type: number
+
+      - name: percentage_scanned_from_cache
+        data_type: float
+
+      - name: bytes_written
+        data_type: number
+
+      - name: bytes_written_to_result
+        data_type: number
+
+      - name: bytes_read_from_result
+        data_type: number
+
+      - name: rows_produced
+        data_type: number
+
+      - name: rows_inserted
+        data_type: number
+
+      - name: rows_updated
+        data_type: number
+
+      - name: rows_deleted
+        data_type: number
+
+      - name: rows_unloaded
+        data_type: number
+
+      - name: bytes_deleted
+        data_type: number
+
+      - name: partitions_scanned
+        data_type: number
+
+      - name: partitions_total
+        data_type: number
+
+      - name: bytes_spilled_to_local_storage
+        data_type: number
+
+      - name: bytes_spilled_to_remote_storage
+        data_type: number
+
+      - name: bytes_sent_over_the_network
+        data_type: number
+
+      - name: compilation_time
+        data_type: number
+
+      - name: execution_time
+        data_type: number
+
+      - name: queued_provisioning_time
+        data_type: number
+
+      - name: queued_repair_time
+        data_type: number
+
+      - name: queued_overload_time
+        data_type: number
+
+      - name: transaction_blocked_time
+        data_type: number
+
+      - name: outbound_data_transfer_cloud
+        data_type: varchar
+
+      - name: outbound_data_transfer_region
+        data_type: varchar
+
+      - name: outbound_data_transfer_bytes
+        data_type: number
+
+      - name: inbound_data_transfer_cloud
+        data_type: varchar
+
+      - name: inbound_data_transfer_region
+        data_type: varchar
+
+      - name: inbound_data_transfer_bytes
+        data_type: number
+
+      - name: list_external_files_time
+        data_type: number
+
+      - name: credits_used_cloud_services
+        data_type: float
+
+      - name: release_version
+        data_type: varchar
+
+      - name: external_function_total_invocations
+        data_type: number
+
+      - name: external_function_total_sent_rows
+        data_type: number
+
+      - name: external_function_total_received_rows
+        data_type: number
+
+      - name: external_function_total_sent_bytes
+        data_type: number
+
+      - name: external_function_total_received_bytes
+        data_type: number
+
+      - name: query_load_percent
+        data_type: number
+
+      - name: is_client_generated_statement
+        data_type: boolean
+
+      - name: query_acceleration_bytes_scanned
+        data_type: number
+
+      - name: query_acceleration_partitions_scanned
+        data_type: number
+
+      - name: query_acceleration_upper_limit_scale_factor
+        data_type: number
+
+      - name: transaction_id
+        data_type: number
+
+      - name: child_queries_wait_time
+        data_type: number
+
+      - name: role_type
+        data_type: varchar
+
+      - name: query_hash
+        data_type: varchar
+
+      - name: query_hash_version
+        data_type: number
+
+      - name: query_parameterized_hash
+        data_type: varchar
+
+      - name: query_parameterized_hash_version
+        data_type: number

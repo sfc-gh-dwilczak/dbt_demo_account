@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: src_snowflake__metering_history
+    config:
+      contract:
+        enforced: true
+    
+    columns:
+      - name: service_type
+        data_type: varchar
+
+      - name: start_time
+        data_type: timestamp_ltz
+
+      - name: end_time
+        data_type: timestamp_ltz
+
+      - name: entity_id
+        data_type: number
+
+      - name: name
+        data_type: varchar
+
+      - name: credits_used_compute
+        data_type: number
+
+      - name: credits_used_cloud_services
+        data_type: number
+
+      - name: credits_used
+        data_type: number
+
+      - name: bytes
+        data_type: number
+
+      - name: rows
+        data_type: number
+
+      - name: files
+        data_type: number
+
+      - name: budget_id
+        data_type: number

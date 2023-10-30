@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('forecast', 'sales_data') }}
+    select * from {{ ref('src_forecast__sales_data') }}
 
 ),
 

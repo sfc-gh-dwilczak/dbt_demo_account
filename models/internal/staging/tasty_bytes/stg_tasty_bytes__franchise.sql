@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('tasty_bytes', 'franchise') }}
+    select * from {{ ref('src_tasty_bytes__franchise') }}
 
 ),
 
@@ -20,5 +20,3 @@ renamed as (
     from source
 
 )
-
-select * from renamed

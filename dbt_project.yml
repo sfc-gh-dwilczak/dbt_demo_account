@@ -24,16 +24,41 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 models:
   Analytics:
     internal:
-      +database: dbt_internal_datasets
+      +database: dbt_internal
     warehouse:
       +database: data_warehouse
       +materialized: table
-    reporting:
-      +database: reporting_datasets
+    data_reports:
+      +database: data_reports
       +materialized: table
+
+snapshots:
+  Analytics:
+    +target_schema: snapshots
+    +strategy: check
+    +check_cols: all
+
+    tasty_bytes:
+      scd_tasty_bytes__city:
+        +unique_key: city_id
+      scd_tasty_bytes__customer:
+        +unique_key: customer_id
+      scd_tasty_bytes__franchise:
+        +unique_key: franchise_id
+      scd_tasty_bytes__franchise_city:
+        +unique_key: franchise_city_id
+      scd_tasty_bytes__location:
+        +unique_key: location_id
+      scd_tasty_bytes__menu:
+        +unique_key: menu_id
+      scd_tasty_bytes__order_detail:
+        +unique_key: order_detail_id
+      scd_tasty_bytes__order_header:
+        +unique_key: order_id
+      scd_tasty_bytes__truck:
+        +unique_key: truck_id

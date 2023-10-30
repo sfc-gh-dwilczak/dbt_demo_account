@@ -1,21 +1,17 @@
 with 
+    source as (select * from {{ ref('src_tasty_bytes__city') }}),
 
-source as (
-
-    select * from {{ source('tasty_bytes', 'city') }}
-
-),
-
-renamed as (
-
-    select
-        city_id,
-        city as city_name,
-        city_population,
-        country_id
-
-    from source
-
-)
+    renamed as (
+        select
+            city_id,
+            city as name,
+            city_population as population,
+            country_id,
+            country,
+            iso_currency,
+            iso_country as iso_country_code
+        from
+            source
+    )
 
 select * from renamed
