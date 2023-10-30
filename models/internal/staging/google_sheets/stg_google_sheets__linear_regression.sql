@@ -1,6 +1,6 @@
 with 
 
-source as ( select * from {{ ref('src_google_sheet__linear_regression') }}),
+source as ( select * from {{ ref('src_google_sheets__linear_regression') }}),
 
 renamed as (
 
