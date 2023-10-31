@@ -61,8 +61,6 @@ snapshots:
       scd_tasty_bytes__customer:
         +unique_key: customer_id
       scd_tasty_bytes__franchise:
-        +unique_key: franchise_id
-      scd_tasty_bytes__franchise_city:
         +unique_key: franchise_city_id
       scd_tasty_bytes__location:
         +unique_key: location_id
