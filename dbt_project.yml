@@ -39,7 +39,6 @@ models:
 
 snapshots:
   Analytics:
-    +target_database: dbt_internal
     +target_schema: snapshots
     +strategy: check
     +check_cols: all
