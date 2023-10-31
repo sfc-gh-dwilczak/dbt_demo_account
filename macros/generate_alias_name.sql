@@ -1,5 +1,5 @@
 {% macro generate_alias_name(custom_alias_name, node) %}
-    {% if node.version is none and (node.version | trim) != '' %}
+    {% if node.version is none or (node.version | trim) == '' %}
         {% set suffix = '' %}
     {% else %}
         {% set suffix = '_v' ~ node.version %}
