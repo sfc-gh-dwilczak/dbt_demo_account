@@ -1,7 +1,5 @@
 {% macro generate_alias_name(custom_alias_name, node) %}
-    {% if node.name.startswith('scd_') %}
-        {{ return(node.name) }}
-    {% elif node.version is none or (node.version | trim) == '' %}
+    {% if node.version is none or (node.version | trim) == '' %}
         {% set suffix = '' %}
     {% else %}
         {% set suffix = '_v' ~ node.version %}
@@ -9,7 +7,7 @@
     {% if node.name == 'metricflow_time_spine' %}
         {{ return(node.name) }}
     {% elif custom_alias_name is not none %}
-        {{ return(custom_alias_name ~ suffix) }}
+        {{ return(custom_alias_name) }}
     {% elif target.name == 'production' %}
         {{ return(
             (
