@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: src_tasty_bytes__truck
+    config:
+      contract:
+        enforced: true
+    
+    columns:
+      - name: truck_id
+        data_type: number
+
+      - name: menu_type_id
+        data_type: number
+
+      - name: primary_city
+        data_type: varchar
+
+      - name: region
+        data_type: varchar
+
+      - name: iso_region
+        data_type: varchar
+
+      - name: country
+        data_type: varchar
+
+      - name: iso_country_code
+        data_type: varchar
+
+      - name: franchise_flag
+        data_type: number
+
+      - name: year
+        data_type: number
+
+      - name: make
+        data_type: varchar
+
+      - name: model
+        data_type: varchar
+
+      - name: ev_flag
+        data_type: number
+
+      - name: franchise_id
+        data_type: number
+
+      - name: truck_opening_date
+        data_type: date

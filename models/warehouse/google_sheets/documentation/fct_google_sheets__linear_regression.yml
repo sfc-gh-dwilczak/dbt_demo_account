@@ -3,6 +3,9 @@ version: 2
 models:
   - name: fct_google_sheets__linear_regression
     description: X Y data for linear regression models.
+    latest_version: 1
+    versions:
+      - v: 1
     
     columns:
       - name: x

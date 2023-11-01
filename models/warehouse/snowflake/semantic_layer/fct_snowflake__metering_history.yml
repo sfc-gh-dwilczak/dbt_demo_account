@@ -2,7 +2,7 @@ version: 2
 
 semantic_models:
   - name: account_metering
-    model: ref('fct_snowflake__metering_history')
+    model: ref('fct_snowflake__metering_history', v=1)
     description: '{{ doc("snowflake__metering_history") }}'
     primary_entity: account_metering
 

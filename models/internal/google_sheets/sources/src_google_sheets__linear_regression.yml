@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: src_google_sheets__linear_regression
+    config:
+      contract:
+        enforced: true
+    
+    columns:
+      - name: _row
+        data_type: number
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+
+      - name: x
+        data_type: number
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+
+      - name: y
+        data_type: number
+        constraints:
+          - type: not_null
+
+      - name: _fivetran_synced
+        data_type: timestamp_tz
+        constraints:
+          - type: not_null

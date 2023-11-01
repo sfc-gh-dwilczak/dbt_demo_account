@@ -9,7 +9,7 @@ with
     query_history as (select * from {{ ref('stg_snowflake__query_history') }}),
     stage_storage_usage_history as (select * from {{ ref('stg_snowflake__stage_storage_usage_history') }}),
     warehouse_metering_history as (select * from {{ ref('stg_snowflake__warehouse_metering_history') }}),
-    customer as (select * from {{ ref('stg_tasty_bytes__customer') }}),
+    customer as (select * from {{ ref('stg_tasty_bytes__customer', v=1) }}),
     orders as (select * from {{ ref('stg_tasty_bytes__order_header') }}),
 
     date_ranges as (

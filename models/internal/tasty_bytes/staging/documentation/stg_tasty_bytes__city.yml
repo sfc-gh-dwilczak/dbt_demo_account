@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: stg_tasty_bytes__city
+    latest_version: 1
+    versions:
+      - v: 1
+    
+    columns:
+      - name: city_id
+        data_type: number
+        description: "{{ doc('tasty_bytes__city_id') }}"
+        tests:
+          - not_null
+          - unique
+
+      - name: city_name
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__city_name') }}"
+        tests:
+          - not_null
+          - unique
+
+      - name: population
+        data_type: number
+        description: "{{ doc('tasty_bytes__city_population') }}"
+
+      - name: country_id
+        data_type: number
+        description: "{{ doc('tasty_bytes__country_id') }}"
+
+      - name: country_name
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__country_name') }}"
+
+      - name: iso_currency
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__iso_currency') }}"
+
+      - name: iso_country_code
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__iso_country_code') }}"
+
+      - name: dbt_scd_id
+        data_type: varchar
+
+      - name: dbt_updated_at
+        data_type: timestamp_ntz
+
+      - name: dbt_valid_from
+        data_type: timestamp_ntz
+
+      - name: dbt_valid_to
+        data_type: timestamp_ntz
+
+      - name: dwh_effective_from
+        data_type: timestamp_ntz
