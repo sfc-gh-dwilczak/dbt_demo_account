@@ -1,5 +1,5 @@
 with
-    source as (select * from {{ ref('scd_snowflake__metering_history_v1') }}),
+    source as (select * from {{ ref('snp_snowflake__metering_history_v1') }}),
 
     filtered as (
         select

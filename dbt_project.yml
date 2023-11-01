@@ -45,34 +45,34 @@ snapshots:
     +invalidate_hard_deletes: true
 
     google_sheets:
-      scd_google_sheets__linear_regression_v1:
+      snp_google_sheets__linear_regression_v1:
         +unique_key: x
 
     snowflake:
       +check_cols: ['dv_hashdiff']
-      scd_snowflake__metering_history_v1:
+      snp_snowflake__metering_history_v1:
         +unique_key: metering_history_id
-      scd_snowflake__query_history_v1:
+      snp_snowflake__query_history_v1:
         +unique_key: query_id
-      scd_snowflake__stage_storage_usage_history_v1:
+      snp_snowflake__stage_storage_usage_history_v1:
         +unique_key: usage_date
-      scd_snowflake__warehouse_metering_history_v1:
+      snp_snowflake__warehouse_metering_history_v1:
         +unique_key: warehouse_metering_history_id
 
     tasty_bytes:
-      scd_tasty_bytes__city_v1:
+      snp_tasty_bytes__city_v1:
         +unique_key: city_id
-      scd_tasty_bytes__customer_v1:
+      snp_tasty_bytes__customer_v1:
         +unique_key: customer_id
-      scd_tasty_bytes__franchise_v1:
+      snp_tasty_bytes__franchise_v1:
         +unique_key: franchise_city_id
-      scd_tasty_bytes__location_v1:
+      snp_tasty_bytes__location_v1:
         +unique_key: location_id
-      scd_tasty_bytes__menu_v1:
+      snp_tasty_bytes__menu_v1:
         +unique_key: menu_item_id
-      scd_tasty_bytes__order_detail_v1:
+      snp_tasty_bytes__order_detail_v1:
         +unique_key: order_detail_id
-      scd_tasty_bytes__order_header_v1:
+      snp_tasty_bytes__order_header_v1:
         +unique_key: order_id
-      scd_tasty_bytes__truck_v1:
+      snp_tasty_bytes__truck_v1:
         +unique_key: truck_id

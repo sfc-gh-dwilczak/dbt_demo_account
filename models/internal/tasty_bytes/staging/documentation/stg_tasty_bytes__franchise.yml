@@ -3,6 +3,9 @@ version: 2
 models:
   - name: stg_tasty_bytes__franchise
     description: Franchise dimensions.
+    latest_version: 1
+    versions:
+      - v: 1
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -19,6 +22,8 @@ models:
         description: "{{ doc('tasty_bytes__last_name') }}"
       - name: city_name
         description: "{{ doc('tasty_bytes__city_name') }}"
+        tests:
+          - not_null
       - name: country_name
         description: "{{ doc('tasty_bytes__country_name') }}"
       - name: email

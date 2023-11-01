@@ -1,6 +1,6 @@
 with
     source as (
-        select * from {{ ref('scd_snowflake__warehouse_metering_history_v1') }}
+        select * from {{ ref('snp_snowflake__warehouse_metering_history_v1') }}
     ),
 
     filtered as (

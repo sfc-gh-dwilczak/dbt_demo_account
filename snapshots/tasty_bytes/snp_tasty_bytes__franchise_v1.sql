@@ -1,4 +1,4 @@
-{% snapshot scd_tasty_bytes__franchise_v1 %}
+{% snapshot snp_tasty_bytes__franchise_v1 %}
 select
     *,
     {{ dbt_utils.generate_surrogate_key(

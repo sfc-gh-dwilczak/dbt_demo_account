@@ -1,1 +1,1 @@
-select * from {{ ref('stg_tasty_bytes__franchise') }}
+select * from {{ ref('stg_tasty_bytes__franchise', v=1) }}

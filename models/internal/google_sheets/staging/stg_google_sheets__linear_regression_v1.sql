@@ -1,5 +1,5 @@
 with 
-    source as (select * from {{ ref('scd_google_sheets__linear_regression_v1') }}),
+    source as (select * from {{ ref('snp_google_sheets__linear_regression_v1') }}),
 
     filtered as (
         select

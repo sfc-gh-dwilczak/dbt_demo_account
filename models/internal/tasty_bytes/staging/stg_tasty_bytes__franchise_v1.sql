@@ -1,5 +1,5 @@
 with
-    source as (select * from {{ ref('src_tasty_bytes__franchise') }}),
+    source as (select * from {{ ref('snp_tasty_bytes__franchise_v1') }}),
 
     filtered as (
         select

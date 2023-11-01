@@ -1,4 +1,4 @@
-{% snapshot scd_snowflake__warehouse_metering_history_v1 %}
+{% snapshot snp_snowflake__warehouse_metering_history_v1 %}
 select
     {{ dbt_utils.generate_surrogate_key(
         ['warehouse_id', 'start_time']

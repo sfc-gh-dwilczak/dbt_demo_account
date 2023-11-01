@@ -1,5 +1,5 @@
 with
-    source as (select * from {{ ref('scd_tasty_bytes__customer_v1') }}),
+    source as (select * from {{ ref('snp_tasty_bytes__customer_v1') }}),
 
     filtered as (
         select

@@ -1,4 +1,4 @@
-{% snapshot scd_snowflake__metering_history_v1 %}
+{% snapshot snp_snowflake__metering_history_v1 %}
 select
     {{ dbt_utils.generate_surrogate_key(
         ['service_type', 'entity_id', 'start_time']

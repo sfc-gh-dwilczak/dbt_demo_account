@@ -1,4 +1,4 @@
-{% snapshot scd_snowflake__query_history_v1 %}
+{% snapshot snp_snowflake__query_history_v1 %}
 select
     0 as dv_hashdiff,
     *
