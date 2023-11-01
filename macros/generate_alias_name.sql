@@ -1,5 +1,7 @@
 {% macro generate_alias_name(custom_alias_name, node) %}
-    {% if node.version is none or (node.version | trim) == '' %}
+    {% if node.name.startswith('scd_') %}
+        {{ return(node.name) }}
+    {% elif node.version is none or (node.version | trim) == '' %}
         {% set suffix = '' %}
     {% else %}
         {% set suffix = '_v' ~ node.version %}
