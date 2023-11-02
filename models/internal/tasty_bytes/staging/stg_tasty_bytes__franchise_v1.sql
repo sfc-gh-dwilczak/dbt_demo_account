@@ -24,7 +24,12 @@ with
             city as city_name,
             country as country_name,
             e_mail as email,
-            phone_number
+            phone_number,
+            dbt_scd_id,
+            dbt_updated_at,
+            dbt_valid_from,
+            dbt_valid_to,
+            dbt_valid_from as dwh_effective_from
         from
             filtered
     )

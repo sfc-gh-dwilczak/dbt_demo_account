@@ -1,1 +1,1 @@
-select * from {{ source('tasty_bytes', 'franchise') }}
+select distinct * from {{ source('tasty_bytes', 'franchise') }}

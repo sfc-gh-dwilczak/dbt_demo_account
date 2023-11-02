@@ -21,7 +21,7 @@ models:
           - not_null
           - unique
 
-      - name: population
+      - name: city_population
         data_type: number
         description: "{{ doc('tasty_bytes__city_population') }}"
 
@@ -33,13 +33,13 @@ models:
         data_type: varchar
         description: "{{ doc('tasty_bytes__country_name') }}"
 
-      - name: iso_currency
-        data_type: varchar
-        description: "{{ doc('tasty_bytes__iso_currency') }}"
-
       - name: iso_country_code
         data_type: varchar
         description: "{{ doc('tasty_bytes__iso_country_code') }}"
+
+      - name: iso_currency_code
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__iso_currency_code') }}"
 
       - name: dbt_scd_id
         data_type: varchar

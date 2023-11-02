@@ -18,7 +18,7 @@ Primary key for a country.
 The full name of the country.
 {% enddocs %}
 
-{% docs tasty_bytes__iso_currency %}
+{% docs tasty_bytes__iso_currency_code %}
 The ISO currency code (e.g. USD) used in that country.
 {% enddocs %}
 
