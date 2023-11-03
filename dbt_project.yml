@@ -59,6 +59,17 @@ snapshots:
       snp_snowflake__warehouse_metering_history_v1:
         +unique_key: warehouse_metering_history_id
 
+    snowflake_usage:
+      +invalidate_hard_deletes: false
+      snp_snowflake_usage__service_v1:
+        +unique_key: service_usage_id
+      snp_snowflake_usage__query_v1:
+        +unique_key: query_id
+      snp_snowflake_usage__storage_v1:
+        +unique_key: usage_date
+      snp_snowflake_usage__warehouse_v1:
+        +unique_key: warehouse_usage_id
+
     tasty_bytes:
       snp_tasty_bytes__city_v1:
         +unique_key: city_id
