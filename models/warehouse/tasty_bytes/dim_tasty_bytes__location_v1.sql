@@ -79,6 +79,29 @@ with
             tasty_bytes
         group by
             country_name
+        
+        union all
+
+        select
+            null as city_id,
+            null as city_name,
+            null as city_population,
+            any_value(country_id) as country_id,
+            country_name,
+            any_value(iso_country_code) as iso_country_code,
+            any_value(iso_currency_code) as iso_currency_code,
+            'tasty_bytes' as dwh_source,
+            1 as dwh_version,
+            'country_name' as dwh_granularity,
+            {{ dbt_utils.generate_surrogate_key(
+                ['dwh_source', 'dwh_version', 'dwh_granularity', "'United Kingdom'"]
+            ) }} as dwh_location_id
+        from
+            tasty_bytes
+        where
+            country_name = 'England'
+        group by
+            country_name
     ),
 
     iso_country_codes as (
