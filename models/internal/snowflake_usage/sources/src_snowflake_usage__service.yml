@@ -1,0 +1,58 @@
+version: 2
+
+models:
+  - name: src_snowflake__service
+    config:
+      contract:
+        enforced: true
+    
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - service_type
+            - entity_id
+            - start_time
+    
+    columns:
+      - name: service_type
+        data_type: varchar
+        constraints:
+          - type: not_null
+
+      - name: start_time
+        data_type: timestamp_ltz
+        constraints:
+          - type: not_null
+
+      - name: end_time
+        data_type: timestamp_ltz
+
+      - name: entity_id
+        data_type: number
+        constraints:
+          - type: not_null
+
+      - name: name
+        data_type: varchar
+
+      - name: credits_used_compute
+        data_type: number
+
+      - name: credits_used_cloud_services
+        data_type: number
+
+      - name: credits_used
+        data_type: number
+
+      - name: bytes
+        data_type: number
+
+      - name: "ROWS"
+        data_type: number
+        quote: true
+
+      - name: files
+        data_type: number
+
+      - name: budget_id
+        data_type: number

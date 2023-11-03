@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: src_snowflake_usage__storage
+    config:
+      contract:
+        enforced: true
+    
+    columns:
+      - name: usage_date
+        data_type: date
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+
+      - name: average_stage_bytes
+        data_type: number
