@@ -6,6 +6,9 @@ with
             customer_id,
             first_name,
             last_name,
+            {{ dbt_utils.generate_surrogate_key(
+                ["'tasty_bytes'", "1", "'city_name'", "city_name"]
+            ) }} as dwh_location_id,
             city_name,
             country_name,
             postal_code,
@@ -33,6 +36,16 @@ with
             {{ keep_distinct_value('customer_id') }} as customer_id,
             first_name,
             last_name,
+            case
+                when min(city_name) = max(city_name)
+                then {{ dbt_utils.generate_surrogate_key(
+                        ["'tasty_bytes'", "1", "'city_name'", "min(city_name)"]
+                    ) }}
+                when min(country_name) = max(country_name)
+                then {{ dbt_utils.generate_surrogate_key(
+                        ["'tasty_bytes'", "1", "'country_name'", "min(country_name)"]
+                    ) }}
+            end as dwh_location_id,
             {%- for column in [
                 'city_name',
                 'country_name',
@@ -66,9 +79,23 @@ with
             {%- for column in [
                 'customer_id',
                 'first_name',
-                'last_name',
+                'last_name'
+            ] %}
+            {{ keep_distinct_value(column) }} as {{ column }},
+            {%- endfor %}
+            case
+                when min(city_name) = max(city_name)
+                then {{ dbt_utils.generate_surrogate_key(
+                        ["'tasty_bytes'", "1", "'city_name'", "min(city_name)"]
+                    ) }}
+                when min(country_name) = max(country_name)
+                then {{ dbt_utils.generate_surrogate_key(
+                        ["'tasty_bytes'", "1", "'country_name'", "min(country_name)"]
+                    ) }}
+            end as dwh_location_id,
+            {%- for column in [
                 'city_name',
-                'country_name',
+                'country_name'
             ] %}
             {{ keep_distinct_value(column) }} as {{ column }},
             {%- endfor %}
@@ -103,7 +130,21 @@ with
             {%- for column in [
                 'customer_id',
                 'first_name',
-                'last_name',
+                'last_name'
+            ] %}
+            {{ keep_distinct_value(column) }} as {{ column }},
+            {%- endfor %}
+            case
+                when min(city_name) = max(city_name)
+                then {{ dbt_utils.generate_surrogate_key(
+                        ["'tasty_bytes'", "1", "'city_name'", "min(city_name)"]
+                    ) }}
+                when min(country_name) = max(country_name)
+                then {{ dbt_utils.generate_surrogate_key(
+                        ["'tasty_bytes'", "1", "'country_name'", "min(country_name)"]
+                    ) }}
+            end as dwh_location_id,
+            {%- for column in [
                 'city_name',
                 'country_name',
                 'postal_code',
@@ -136,7 +177,21 @@ with
             {%- for column in [
                 'customer_id',
                 'first_name',
-                'last_name',
+                'last_name'
+            ] %}
+            {{ keep_distinct_value(column) }} as {{ column }},
+            {%- endfor %}
+            case
+                when min(city_name) = max(city_name)
+                then {{ dbt_utils.generate_surrogate_key(
+                        ["'tasty_bytes'", "1", "'city_name'", "min(city_name)"]
+                    ) }}
+                when min(country_name) = max(country_name)
+                then {{ dbt_utils.generate_surrogate_key(
+                        ["'tasty_bytes'", "1", "'country_name'", "min(country_name)"]
+                    ) }}
+            end as dwh_location_id,
+            {%- for column in [
                 'city_name',
                 'country_name',
                 'postal_code',
