@@ -109,6 +109,8 @@ models:
           - test_name: unique
             name: unique_dim_tasty_bytes__location_v1_country_id__per__country_name
             config:
+              error_if: "> 1"
+              warn_if: "> 1"
               where: >
                 dwh_source = 'tasty_bytes' and dwh_granularity = 'country_name'
           - test_name: unique
@@ -134,6 +136,8 @@ models:
           - test_name: unique
             name: unique_dim_tasty_bytes__location_v1_country_name__per__country_name
             config:
+              error_if: "> 1"
+              warn_if: "> 1"
               where: >
                 dwh_source = 'tasty_bytes' and dwh_granularity = 'country_name'
           - test_name: unique
@@ -159,6 +163,8 @@ models:
           - test_name: unique
             name: unique_dim_tasty_bytes__location_v1_iso_country_code__per__country_name
             config:
+              error_if: "> 1"
+              warn_if: "> 1"
               where: >
                 dwh_source = 'tasty_bytes' and dwh_granularity = 'country_name'
           - test_name: unique
