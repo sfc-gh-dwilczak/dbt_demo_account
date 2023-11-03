@@ -7,18 +7,21 @@ sources:
 
     tables: 
       - name: service
+        identifier: metering_history
         description: >
           The METERING_HISTORY view in the ACCOUNT_USAGE schema can be
           used to return the hourly credit usage for an account within
           the last 365 days (1 year).
       
-      - name: query 
+      - name: query
+        identifier: query_history
         description: >
           This Account Usage view can be used to query Snowflake query
           history by various dimensions (time range, session, user,
           warehouse, etc.) within the last 365 days (1 year).
       
       - name: storage
+        identifier: stage_storage_usage_history
         description: >
           This Account Usage view can be used to query the average daily
           data storage usage, in bytes, within the last 365 days (1 year)
@@ -27,6 +30,7 @@ sources:
             Default staging areas (for tables and users).
       
       - name: warehouse
+        identifier: warehouse_metering_history
         description: >
           This Account Usage view can be used to return the hourly credit
           usage for a single warehouse (or all the warehouses in your
