@@ -1,0 +1,15 @@
+version: 2
+
+semantic_models:
+  - name: snowflake_usage_warehouse
+    model: ref('dim_snowflake_usage__warehouse', v=1)
+
+    entities:
+      - name: snowflake_usage
+        expr: dwh_snowflake_usage_id
+        type: unique
+    primary_entity: snowflake_usage_warehouse
+
+    dimensions:
+      - name: warehouse_name
+        type: categorical
