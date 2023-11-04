@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: dim_snowflake_usage__query
+    config:
+      contract:
+        enforced: true
+    latest_version: 1
+    versions:
+      - v: 1
+    
+    columns:
+      - name: dwh_snowflake_usage_id
+        data_type: varchar
+
+      - name: query_type
+        data_type: varchar
+
+      - name: query_tag
+        data_type: varchar
+
+      - name: query_text
+        data_type: varchar
+
+      - name: database_name
+        data_type: varchar
+
+      - name: schema_name
+        data_type: varchar
+
+      - name: user_name
+        data_type: varchar
+
+      - name: role_type
+        data_type: varchar
+
+      - name: role_name
+        data_type: varchar
+
+      - name: warehouse_name
+        data_type: varchar
+
+      - name: warehouse_size
+        data_type: varchar
+
+      - name: warehouse_type
+        data_type: varchar
+
+      - name: warehouse_clusters
+        data_type: number

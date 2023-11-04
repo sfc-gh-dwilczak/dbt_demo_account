@@ -26,7 +26,7 @@ with
             warehouse_name,
             warehouse_size,
             warehouse_type,
-            cluster_number,
+            cluster_number as warehouse_clusters,
             query_tag,
             execution_status,
             error_code,

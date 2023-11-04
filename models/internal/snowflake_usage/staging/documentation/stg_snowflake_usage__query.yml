@@ -52,7 +52,7 @@ models:
       - name: warehouse_type
         data_type: varchar
 
-      - name: cluster_number
+      - name: warehouse_clusters
         data_type: number
 
       - name: query_tag
