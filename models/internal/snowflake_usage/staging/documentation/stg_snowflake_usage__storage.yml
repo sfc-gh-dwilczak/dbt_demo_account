@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_snowflake_usage__storage
+    config:
+      contract:
+        enforced: true
+    latest_version: 1
+    versions:
+      - v: 1
+    
+    columns:
+      - name: usage_date
+        data_type: date
+
+      - name: average_stage_bytes
+        data_type: number
+
+      - name: dbt_unique_key
+        data_type: varchar
+
+      - name: dbt_scd_id
+        data_type: varchar
+
+      - name: dbt_updated_at
+        data_type: timestamp_ntz
+
+      - name: dbt_valid_from
+        data_type: timestamp_ntz
+
+      - name: dbt_valid_to
+        data_type: timestamp_ntz
+
+      - name: dwh_effective_from
+        data_type: timestamp_ntz
