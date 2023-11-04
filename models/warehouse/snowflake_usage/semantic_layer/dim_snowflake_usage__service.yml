@@ -11,9 +11,6 @@ semantic_models:
     primary_entity: snowflake_usage_service
 
     dimensions:
-      - name: dwh_snowflake_usage_id
-        type: categorical
-
       - name: entity_id
         type: categorical
 
