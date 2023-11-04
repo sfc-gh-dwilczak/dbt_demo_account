@@ -40,13 +40,10 @@ models:
 snapshots:
   Analytics:
     +target_schema: snapshots
+    +unique_key: dbt_unique_key
     +strategy: check
     +check_cols: all
     +invalidate_hard_deletes: true
-
-    google_sheets:
-      snp_google_sheets__linear_regression_v1:
-        +unique_key: x
 
     snowflake:
       +check_cols: ['dv_hashdiff']
@@ -61,29 +58,3 @@ snapshots:
 
     snowflake_usage:
       +invalidate_hard_deletes: false
-      snp_snowflake_usage__service_v1:
-        +unique_key: service_usage_id
-      snp_snowflake_usage__query_v1:
-        +unique_key: query_id
-      snp_snowflake_usage__storage_v1:
-        +unique_key: usage_date
-      snp_snowflake_usage__warehouse_v1:
-        +unique_key: warehouse_usage_id
-
-    tasty_bytes:
-      snp_tasty_bytes__city_v1:
-        +unique_key: city_id
-      snp_tasty_bytes__customer_v1:
-        +unique_key: customer_id
-      snp_tasty_bytes__franchise_v1:
-        +unique_key: franchise_city_id
-      snp_tasty_bytes__location_v1:
-        +unique_key: location_id
-      snp_tasty_bytes__menu_v1:
-        +unique_key: menu_item_id
-      snp_tasty_bytes__order_detail_v1:
-        +unique_key: order_detail_id
-      snp_tasty_bytes__order_header_v1:
-        +unique_key: order_id
-      snp_tasty_bytes__truck_v1:
-        +unique_key: truck_id
