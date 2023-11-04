@@ -1,9 +1,6 @@
 {% snapshot snp_snowflake_usage__storage_v1 %}
-select
-    *,
-    {{ dbt_utils.generate_surrogate_key(
-        ['usage_date', 'hash(*)']
-    ) }} as dbt_unique_key
-from
-    {{ ref('src_snowflake_usage__storage') }}
+{{ generate_snapshot_sql(
+    model=ref('src_snowflake_usage__storage'),
+    keys=['usage_date']
+) }}
 {% endsnapshot %}
