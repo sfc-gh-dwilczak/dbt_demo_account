@@ -38,7 +38,8 @@ models:
       +schema: snapshots
       +materialized: incremental
       +unique_key: dbt_scd_uk
-      +incremental_predicates: ['dbt_valid_to is null']
+      +incremental_predicates: ['DBT_INTERNAL_DEST.dbt_valid_to is null']
+      +full_refresh: false
     warehouse:
       +database: data_warehouse
       +materialized: table
