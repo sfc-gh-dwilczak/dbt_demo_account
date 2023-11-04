@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: fct_snowflake_usage__metrics
+    config:
+      contract:
+        enforced: true
+    latest_version: 1
+    versions:
+      - v: 1
+    
+    columns:
+      - name: dwh_source
+        data_type: varchar
+
+      - name: dwh_snowflake_usage_id
+        data_type: varchar
+
+      - name: usage_date
+        data_type: date
+
+      - name: bytes
+        data_type: number
+
+      - name: credits_used
+        data_type: number
+
+      - name: credits_used_compute
+        data_type: number
+
+      - name: credits_used_cloud_services
+        data_type: float
+
+      - name: files
+        data_type: number
+
+      - name: elapsed_milliseconds
+        data_type: number
