@@ -3,7 +3,7 @@ select
     *,
     {{ dbt_utils.generate_surrogate_key(
         keys + ['hash(*)']
-    ) }} as dbt_snp_id
+    ) }} as dbt_scd_uk
 from (
     select
         "{{ sorted_columns(model) | join('",\n        "') }}"

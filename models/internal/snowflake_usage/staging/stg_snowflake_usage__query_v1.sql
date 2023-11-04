@@ -82,8 +82,8 @@ with
             query_hash_version,
             query_parameterized_hash,
             query_parameterized_hash_version,
+            dbt_scd_uk as dbt_unique_key,
             dbt_scd_id,
-            dbt_updated_at,
             dbt_valid_from,
             dbt_valid_to,
             start_time as dwh_effective_from

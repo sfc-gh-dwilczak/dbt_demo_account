@@ -21,6 +21,7 @@ with
             credits_used,
             credits_used_compute,
             credits_used_cloud_services,
+            dbt_scd_uk as dbt_unique_key,
             dbt_scd_id,
             dbt_updated_at,
             dbt_valid_from,

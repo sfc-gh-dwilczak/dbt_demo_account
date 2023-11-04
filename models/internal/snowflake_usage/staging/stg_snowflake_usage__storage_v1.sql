@@ -16,6 +16,7 @@ with
         select
             usage_date,
             average_stage_bytes,
+            dbt_scd_uk as dbt_unique_key,
             dbt_scd_id,
             dbt_updated_at,
             dbt_valid_from,

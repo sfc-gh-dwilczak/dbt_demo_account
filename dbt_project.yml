@@ -40,7 +40,7 @@ models:
 snapshots:
   Analytics:
     +target_schema: snapshots
-    +unique_key: dbt_snp_id
+    +unique_key: dbt_scd_uk
     +strategy: check
     +check_cols: all
     +invalidate_hard_deletes: true
