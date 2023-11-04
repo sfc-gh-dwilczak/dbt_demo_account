@@ -5,10 +5,7 @@
 with
     --future_features as (select * from {# ref('stg_forecast__future_features') #}),
     --sales_data as (select * from {# ref('stg_forecast__sales_data') #}),
-    metering_history as (select * from {{ ref('stg_snowflake__metering_history') }}),
-    query_history as (select * from {{ ref('stg_snowflake__query_history') }}),
-    stage_storage_usage_history as (select * from {{ ref('stg_snowflake__stage_storage_usage_history') }}),
-    warehouse_metering_history as (select * from {{ ref('stg_snowflake__warehouse_metering_history') }}),
+    snowflake_usage as (select * from {{ ref('fct_snowflake_usage__metrics') }}),
     customer as (select * from {{ ref('stg_tasty_bytes__customer', v=1) }}),
     orders as (select * from {{ ref('stg_tasty_bytes__order_header') }}),
 
@@ -31,34 +28,10 @@ with
         union all
         */
         select
-            min(start_time::date) as start_on,
-            max(end_time::date) as stop_on
-        from
-            metering_history
-        
-        union all
-
-        select
-            min(start_time::date) as start_on,
-            max(end_time::date) as stop_on
-        from
-            query_history
-        
-        union all
-
-        select
             min(usage_date::date) as start_on,
             max(usage_date::date) as stop_on
         from
-            stage_storage_usage_history
-        
-        union all
-
-        select
-            min(start_time::date) as start_on,
-            max(end_time::date) as stop_on
-        from
-            warehouse_metering_history
+            snowflake_usage
         
         union all
 

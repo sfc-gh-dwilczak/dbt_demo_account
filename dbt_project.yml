@@ -33,6 +33,11 @@ models:
     reporting:
       +database: data_reports
       +materialized: table
+    snapshots:
+      +database: dbt_internal
+      +schema: snapshots
+      +materialized: incremental
+      +unique_key: dbt_scd_uk
     warehouse:
       +database: data_warehouse
       +materialized: table
@@ -44,17 +49,6 @@ snapshots:
     +strategy: check
     +check_cols: all
     +invalidate_hard_deletes: true
-
-    snowflake:
-      +check_cols: ['dv_hashdiff']
-      snp_snowflake__metering_history_v1:
-        +unique_key: metering_history_id
-      snp_snowflake__query_history_v1:
-        +unique_key: query_id
-      snp_snowflake__stage_storage_usage_history_v1:
-        +unique_key: usage_date
-      snp_snowflake__warehouse_metering_history_v1:
-        +unique_key: warehouse_metering_history_id
 
     snowflake_usage:
       +invalidate_hard_deletes: false
