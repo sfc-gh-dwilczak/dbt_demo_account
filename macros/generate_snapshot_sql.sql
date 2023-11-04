@@ -3,10 +3,10 @@ select
     *,
     {{ dbt_utils.generate_surrogate_key(
         keys + ['hash(*)']
-    ) }} as dbt_unique_key
+    ) }} as dbt_snp_id
 from (
     select
-        {{ sorted_columns(model) | join(',\n        ') }}
+        "{{ sorted_columns(model) | join('",\n        "') }}"
     from
         {{ model }}
 )
