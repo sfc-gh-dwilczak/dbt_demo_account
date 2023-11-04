@@ -6,7 +6,7 @@ models:
       contract:
         enforced: true
     tests:
-      - dbt_utils.unique_combination_of_columns:
+      - unique_combination_with_salt:
           combination_of_columns:
             - warehouse_id
             - start_time

@@ -1,3 +1,7 @@
+{% docs dbt_snapshot__dbt_unique_key %}
+Surrogate key including hash(*) for DBT snapshot unique key.
+{% enddocs %}
+
 {% docs dbt_snapshot__dbt_scd_id %}
 Surrogate key for DBT snapshot internal use.
 {% enddocs %}

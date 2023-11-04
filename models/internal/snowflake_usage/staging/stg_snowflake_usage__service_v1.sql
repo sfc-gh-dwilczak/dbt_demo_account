@@ -24,6 +24,7 @@ with
             bytes,
             files,
             budget_id,
+            dbt_unique_key,
             dbt_scd_id,
             dbt_updated_at,
             dbt_valid_from,

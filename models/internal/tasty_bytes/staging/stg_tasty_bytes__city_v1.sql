@@ -7,7 +7,7 @@ with
         from
             source
         qualify
-            row_number() over (
+            rank() over (
                 partition by
                     city_id
                 order by

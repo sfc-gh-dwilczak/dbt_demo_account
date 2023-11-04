@@ -12,7 +12,7 @@ models:
         constraints:
           - type: not_null
         tests:
-          - unique
+          - unique_with_salt
 
       - name: first_name
         data_type: varchar

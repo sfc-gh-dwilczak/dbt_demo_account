@@ -7,7 +7,7 @@ models:
         enforced: true
     
     tests:
-      - dbt_utils.unique_combination_of_columns:
+      - unique_combination_with_salt:
           combination_of_columns:
             - franchise_id
             - city

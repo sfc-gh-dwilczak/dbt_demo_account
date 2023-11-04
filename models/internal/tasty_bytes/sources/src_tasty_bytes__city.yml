@@ -24,7 +24,7 @@ models:
         constraints:
           - type: not_null
         tests:
-          - unique
+          - unique_with_salt
 
       - name: city
         data_type: varchar

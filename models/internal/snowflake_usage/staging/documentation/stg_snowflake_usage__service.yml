@@ -2,10 +2,10 @@ version: 2
 
 models:
   - name: stg_snowflake_usage__service
-    description:  "{{ doc('snowflake_usage__metering_history') }}"
-    #latest_version: 1
-    #versions:
-    #  - v: 1
+    description:  "{{ doc('snowflake_usage__service') }}"
+    latest_version: 1
+    versions:
+      - v: 1
       
     columns:
       - name: service_type
@@ -55,13 +55,17 @@ models:
         data_type: number
         description: "{{ doc('snowflake_usage__budget_id') }}"
 
+      - name: dbt_unique_key
+        data_type: varchar
+        description: "{{ doc('dbt_snapshot__dbt_unique_key') }}"
+
       - name: dbt_scd_id
         data_type: varchar
         description: "{{ doc('dbt_snapshot__dbt_scd_id') }}"
 
       - name: dbt_updated_at
         data_type: timestamp_ntz
-        description: "{{ doc('dbt_snapshot__dbt_updated') }}"
+        description: "{{ doc('dbt_snapshot__dbt_updated_at') }}"
 
       - name: dbt_valid_from
         data_type: timestamp_ntz

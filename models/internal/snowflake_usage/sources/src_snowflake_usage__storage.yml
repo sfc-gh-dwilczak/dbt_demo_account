@@ -12,7 +12,7 @@ models:
         constraints:
           - type: not_null
         tests:
-          - unique
+          - unique_with_salt
 
       - name: average_stage_bytes
         data_type: number

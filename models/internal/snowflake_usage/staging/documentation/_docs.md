@@ -1,9 +1,9 @@
-{% docs snowflake_usage__metering_history%}
+{% docs snowflake_usage__service %}
 The METERING_HISTORY view in the ACCOUNT_USAGE schema can be used to return 
 the hourly credit usage for an account within the last 365 days (1 year).
 {% enddocs %}
 
-{% docs snowflake_usage__warehouse_metering_history %}
+{% docs snowflake_usage__warehouse %}
 This Account Usage view can be used to return the hourly credit usage
 for a single warehouse (or all the warehouses in your account) within
 the last 365 days (1 year).

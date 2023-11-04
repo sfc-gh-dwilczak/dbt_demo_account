@@ -12,14 +12,14 @@ models:
         constraints:
           - type: not_null
         tests:
-          - unique
+          - unique_with_salt
 
       - name: x
         data_type: number
         constraints:
           - type: not_null
         tests:
-          - unique
+          - unique_with_salt
 
       - name: y
         data_type: number
