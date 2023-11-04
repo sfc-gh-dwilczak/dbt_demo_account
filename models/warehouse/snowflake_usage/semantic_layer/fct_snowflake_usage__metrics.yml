@@ -1,0 +1,144 @@
+version: 2
+
+semantic_models:
+  - name: snowflake_usage
+    model: ref('fct_snowflake_usage__metrics', v=1)
+
+    entities:
+      - name: snowflake_usage
+        expr: dwh_snowflake_usage_id
+        type: primary
+    
+    dimensions:
+      - name: dwh_source
+        type: categorical
+      
+      - name: usage_date
+        type: time
+        type_params:
+          time_granularity: day
+    
+    defaults:
+      agg_time_dimension: usage_date
+    
+    measures:
+      - name: total_bytes
+        agg: sum
+        expr: bytes
+      
+      - name: total_credits_used
+        agg: sum
+        expr: credits_used
+      
+      - name: total_credits_used_compute
+        agg: sum
+        expr: credits_used_compute
+      
+      - name: total_credits_used_cloud_services
+        agg: sum
+        expr: credits_used_cloud_services
+      
+      - name: total_files
+        agg: sum
+        expr: files
+      
+      - name: total_elapsed_milliseconds
+        agg: sum
+        expr: elapsed_milliseconds
+      
+      - name: max_bytes
+        agg: max
+        expr: bytes
+      
+      - name: max_credits_used
+        agg: max
+        expr: credits_used
+      
+      - name: max_credits_used_compute
+        agg: max
+        expr: credits_used_compute
+      
+      - name: max_credits_used_cloud_services
+        agg: max
+        expr: credits_used_cloud_services
+      
+      - name: max_files
+        agg: max
+        expr: files
+      
+      - name: max_elapsed_milliseconds
+        agg: max
+        expr: elapsed_milliseconds
+
+metrics:
+  - name: total_bytes
+    label: total bytes
+    type: simple
+    type_params:
+      measure: total_bytes
+  
+  - name: total_credits_used
+    label: total credits used
+    type: simple
+    type_params:
+      measure: total_credits_used
+  
+  - name: total_credits_used_compute
+    label: total credits used compute
+    type: simple
+    type_params:
+      measure: total_credits_used_compute
+  
+  - name: total_credits_used_cloud_services
+    label: total credits used cloud services
+    type: simple
+    type_params:
+      measure: total_credits_used_cloud_services
+  
+  - name: total_files
+    label: total files
+    type: simple
+    type_params:
+      measure: total_files
+  
+  - name: total_elapsed_milliseconds
+    label: total elapsed milliseconds
+    type: simple
+    type_params:
+      measure: total_elapsed_milliseconds
+  
+  - name: max_bytes
+    label: max bytes
+    type: simple
+    type_params:
+      measure: max_bytes
+  
+  - name: max_credits_used
+    label: max credits used
+    type: simple
+    type_params:
+      measure: max_credits_used
+  
+  - name: max_credits_used_compute
+    label: max credits used compute
+    type: simple
+    type_params:
+      measure: max_credits_used_compute
+  
+  - name: max_credits_used_cloud_services
+    label: max credits used cloud services
+    type: simple
+    type_params:
+      measure: max_credits_used_cloud_services
+  
+  - name: max_files
+    label: max files
+    type: simple
+    type_params:
+      measure: max_files
+  
+  - name: max_elapsed_milliseconds
+    label: max elapsed milliseconds
+    type: simple
+    type_params:
+      measure: max_elapsed_milliseconds
