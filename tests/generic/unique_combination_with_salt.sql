@@ -5,7 +5,7 @@ from
     {{ model }}
 group by
     {{ combination_of_columns | join(',\n    ') }},
-    hash(*)
+    hash({{ sorted_select_star(model) }})
 having
     count(*) > 1
 {% endtest %}
