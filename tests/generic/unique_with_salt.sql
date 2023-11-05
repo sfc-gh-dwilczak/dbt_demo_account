@@ -4,7 +4,7 @@ select distinct
 from
     {{ model }}
 group by
-    {{ column_name }}, hash({{ sorted_select_star(model) }})
+    {{ column_name }}, {{ hash(model) }}
 having
     count(*) > 1
 {% endtest %}

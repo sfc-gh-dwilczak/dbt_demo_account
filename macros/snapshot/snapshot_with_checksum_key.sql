@@ -2,7 +2,7 @@
 select
     {{ sorted_select_star(model) }},
     {{ dbt_utils.generate_surrogate_key(
-        keys + ['hash(' ~ sorted_select_star(model) ~ ')']
+        keys + [hash(model)]
     ) }} as dbt_scd_uk
 from
     {{ model }}
