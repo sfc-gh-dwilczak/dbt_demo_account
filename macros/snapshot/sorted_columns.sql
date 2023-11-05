@@ -1,8 +1,12 @@
-{% macro sorted_columns(model) %}
+{% macro sorted_columns(model, quote=true) %}
     {% set columns = [] %}
 
     {% for column in get_columns_in_relation(model) %}
-        {% do columns.append(column.name) %}
+        {% if quote %}
+            {% do columns.append('"' ~ column.name ~ '"') %}
+        {% else %}
+            {% do columns.append(column.name) %}
+        {% endif %}
     {% endfor %}
     
     {% do columns.sort() %}

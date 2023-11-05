@@ -2,7 +2,7 @@
 select
     "{{ sorted_columns(model) | join('",\n    "') }}",
     {{ dbt_utils.generate_surrogate_key(
-        keys + ['hash("' ~ (sorted_columns(model) | join('", "')) ~ '")']
+        keys + ['hash(' ~ sorted_select_star(model) ~ ')']
     ) }} as dbt_scd_uk
 from
     {{ model }}

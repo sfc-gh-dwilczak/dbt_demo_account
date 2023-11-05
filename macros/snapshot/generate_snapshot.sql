@@ -11,7 +11,7 @@
         {{ return(snapshot_with_partition_by(
             query=query,
             partition_by=partition_by,
-            checksum=hash_agg(model),
+            checksum='hash_agg(' ~ sorted_select_star(model) ~ ')',
             invalidate_hard_deletes=invalidate_hard_deletes
         )) }}
     {% endif %}
