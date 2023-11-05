@@ -1,18 +1,8 @@
 with 
-    source as (select * from {{ ref('snp_tasty_bytes__city_v1') }}),
-
-    filtered as (
-        select
-            *
-        from
-            source
-        qualify
-            rank() over (
-                partition by
-                    city_id
-                order by
-                    dbt_valid_from desc
-            ) = 1
+    source as (
+        select *
+        from {{ ref('snp_tasty_bytes__city_v1') }}
+        {{ filter_snapshot_last_seen('city_id') }}
     ),
 
     renamed as (
@@ -30,7 +20,7 @@ with
             dbt_valid_to,
             dbt_valid_from as dwh_effective_from
         from
-            filtered
+            source
     )
 
 select * from renamed

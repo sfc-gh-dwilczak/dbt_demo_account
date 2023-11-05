@@ -1,26 +1,65 @@
 version: 2
 
 models:
-  - name: stg_tasty_bytes__location
+  - name: stg_tasty_bytes__location_v1
     description: Location dimension.
+    config:
+      contract:
+        enforced: true
+    
     columns:
       - name: location_id
+        data_type: number
         description: "{{ doc('tasty_bytes__location_id') }}"
+        constraints:
+          - type: not_null
         tests:
-          - not_null
           - unique
+
       - name: place_key
+        data_type: varchar
         description: "{{ doc('tasty_bytes__place_key') }}"
+        constraints:
+          - type: not_null
         tests:
-          - not_null
           - unique
+
       - name: location_name
+        data_type: varchar
         description: "{{ doc('tasty_bytes__location_name') }}"
+
       - name: city_name
+        data_type: varchar
         description: "{{ doc('tasty_bytes__city_name') }}"
+
       - name: region_name
+        data_type: varchar
         description: "{{ doc('tasty_bytes__region_name') }}"
+
       - name: iso_country_code
+        data_type: varchar
         description: "{{ doc('tasty_bytes__iso_country_code') }}"
+
       - name: country_name
+        data_type: varchar
         description: "{{ doc('tasty_bytes__country_name') }}"
+
+      - name: dbt_scd_id
+        data_type: varchar
+        description: "{{ doc('dbt_snapshot__dbt_scd_id') }}"
+
+      - name: dbt_updated_at
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dbt_updated_at') }}"
+
+      - name: dbt_valid_from
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dbt_valid_from') }}"
+
+      - name: dbt_valid_to
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dbt_valid_to') }}"
+
+      - name: dwh_effective_from
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dwh_effective_from') }}"

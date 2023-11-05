@@ -1,13 +1,8 @@
 with
-    source as (select * from {{ ref('snp_snowflake_usage__service_v1') }}),
-
-    filtered as (
-        select
-            *
-        from
-            source
-        where
-            dbt_valid_to is null
+    source as (
+        select *
+        from {{ ref('snp_snowflake_usage__service_v1') }}
+        {{ filter_snapshot_current() }}
     ),
 
     renamed as (
@@ -31,7 +26,7 @@ with
             dbt_valid_to,
             start_time as dwh_effective_from
         from
-            filtered
+            source
     )
 
 select * from renamed

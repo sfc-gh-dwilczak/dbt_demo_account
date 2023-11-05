@@ -1,19 +1,19 @@
 with
     source as (
         select *
-        from {{ ref('snp_tasty_bytes__franchise_v1') }}
-        {{ filter_snapshot_last_seen('franchise_id, city') }}
+        from {{ ref('snp_tasty_bytes__location_v1') }}
+        {{ filter_snapshot_last_seen('location_id') }}
     ),
 
     renamed as (
         select
-            franchise_id,
-            first_name,
-            last_name,
+            location_id,
+            placekey as place_key,
+            location as location_name,
             city as city_name,
+            region as region_name,
+            iso_country_code,
             country as country_name,
-            e_mail as email,
-            phone_number,
             dbt_scd_id,
             dbt_updated_at,
             dbt_valid_from,

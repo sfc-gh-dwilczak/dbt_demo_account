@@ -43,15 +43,20 @@ models:
 
       - name: dbt_scd_id
         data_type: varchar
+        description: "{{ doc('dbt_snapshot__dbt_scd_id') }}"
 
       - name: dbt_updated_at
         data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dbt_updated_at') }}"
 
       - name: dbt_valid_from
         data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dbt_valid_from') }}"
 
       - name: dbt_valid_to
         data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dbt_valid_to') }}"
 
       - name: dwh_effective_from
         data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dwh_effective_from') }}"

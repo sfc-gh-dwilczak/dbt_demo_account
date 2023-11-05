@@ -3,41 +3,94 @@ version: 2
 models:
   - name: stg_tasty_bytes__customer
     description: Customer dimensions.
+    config:
+      contract:
+        enforced: true
     latest_version: 1
     versions:
       - v: 1
 
     columns:
       - name: customer_id
+        data_type: number
         description: "{{ doc('tasty_bytes__customer_id') }}"
+        constraints:
+          - type: not_null
         tests:
-          - not_null
           - unique
+      
       - name: first_name
+        data_type: varchar
         description: "{{ doc('tasty_bytes__first_name') }}"
+
       - name: last_name
+        data_type: varchar
         description: "{{ doc('tasty_bytes__last_name') }}"
+      
       - name: city_name
+        data_type: varchar
         description: "{{ doc('tasty_bytes__city_name') }}"
+      
       - name: country_name
+        data_type: varchar
         description: "{{ doc('tasty_bytes__country_name') }}"
+      
       - name: postal_code
+        data_type: varchar
         description: "{{ doc('tasty_bytes__postal_code') }}"
+      
       - name: preferred_language
+        data_type: varchar
         description: "{{ doc('tasty_bytes__preferred_language') }}"
+      
       - name: gender
+        data_type: varchar
         description: "{{ doc('tasty_bytes__gender') }}"
+      
       - name: favourite_brand
+        data_type: varchar
         description: "{{ doc('tasty_bytes__favourite_brand') }}"
+      
       - name: marital_status
+        data_type: varchar
         description: "{{ doc('tasty_bytes__marital_status') }}"
+      
       - name: children_count
+        data_type: varchar
         description: "{{ doc('tasty_bytes__children_count') }}"
+      
       - name: sign_up_date
+        data_type: date
         description: "{{ doc('tasty_bytes__sign_up_date') }}"
+      
       - name: birthday_date
+        data_type: date
         description: "{{ doc('tasty_bytes__birthday_date') }}"
+      
       - name: email
+        data_type: varchar
         description: "{{ doc('tasty_bytes__email') }}"
+      
       - name: phone_number
+        data_type: varchar
         description: "{{ doc('tasty_bytes__phone_number') }}"
+
+      - name: dbt_scd_id
+        data_type: varchar
+        description: "{{ doc('dbt_snapshot__dbt_scd_id') }}"
+
+      - name: dbt_updated_at
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dbt_updated_at') }}"
+
+      - name: dbt_valid_from
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dbt_valid_from') }}"
+
+      - name: dbt_valid_to
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dbt_valid_to') }}"
+
+      - name: dwh_effective_from
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dwh_effective_from') }}"
