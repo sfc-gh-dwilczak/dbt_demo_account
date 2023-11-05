@@ -1,10 +1,9 @@
-{% macro snapshot_partitions(
+{% macro snapshot_with_partition_by(
     query,
     partition_by,
     checksum,
     unique_key='dbt_scd_uk',
     check_cols='all',
-    exclude_cols=[],
     invalidate_hard_deletes=false
 ) %}
     {% if not is_incremental() %}
@@ -32,8 +31,7 @@
             {% set check_cols = [] %}
             {%
                 for column in get_columns_in_relation(this)
-                if column.name.lower() not in exclude_cols
-                and column.name.lower() not in [
+                if column.name.lower() not in [
                     'dbt_valid_from',
                     'dbt_valid_to',
                     'dbt_scd_id',
