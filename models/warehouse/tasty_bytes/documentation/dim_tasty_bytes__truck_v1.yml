@@ -1,0 +1,86 @@
+version: 2
+
+models:
+  - name: dim_tasty_bytes__truck
+    config:
+      contract:
+        enforced: true
+    latest_version: 1
+    versions:
+      - v: 1
+    
+    columns:
+      - name: dwh_truck_id
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+      
+      - name: dwh_source
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+        tests:
+          - accepted_values:
+              values:
+                - 'tasty_bytes'
+      
+      - name: dwh_version
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+      
+      - name: dwh_granularity
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: truck_id
+        data_type: number
+
+      - name: menu_type_id
+        data_type: number
+
+      - name: dwh_location_id
+        data_type: varchar
+
+      - name: primary_city
+        data_type: varchar
+
+      - name: country_region_name
+        data_type: varchar
+
+      - name: country_region_iso_code
+        data_type: varchar
+
+      - name: country_name
+        data_type: varchar
+
+      - name: country_iso_code
+        data_type: varchar
+
+      - name: franchise_flag
+        data_type: number
+
+      - name: truck_year
+        data_type: number
+
+      - name: truck_make
+        data_type: varchar
+
+      - name: truck_model
+        data_type: varchar
+
+      - name: ev_flag
+        data_type: number
+
+      - name: dwh_franchise_id
+        data_type: varchar
+
+      - name: truck_opening_date
+        data_type: date

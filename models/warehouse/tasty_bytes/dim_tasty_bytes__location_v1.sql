@@ -8,7 +8,7 @@ with
             country_region_name,
             country_region_iso_code
         from
-            {{ ref('stg_tasty_bytes__truck') }}
+            {{ ref('stg_tasty_bytes__truck', v=1) }}
     ),
 
     city_ids as (
