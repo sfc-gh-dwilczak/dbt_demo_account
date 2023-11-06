@@ -194,11 +194,11 @@ Shift end time.
 Order channel.
 {% enddocs %}
 
-{% docs tasty_bytes__order_ts %}
+{% docs tasty_bytes__ordered_at %}
 Time of order.
 {% enddocs %}
 
-{% docs tasty_bytes__served_ts %}
+{% docs tasty_bytes__served_at %}
 Time of order served.
 {% enddocs %}
 

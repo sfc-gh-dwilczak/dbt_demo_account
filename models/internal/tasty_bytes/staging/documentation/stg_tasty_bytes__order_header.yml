@@ -3,36 +3,104 @@ version: 2
 models:
   - name: stg_tasty_bytes__order_header
     description: Order header fact table.
+    config:
+      contract:
+        enforced: true
+    latest_version: 1
+    versions:
+      - v: 1
+    
     columns:
       - name: order_id
+        data_type: number
         description: "{{ doc('tasty_bytes__order_id') }}"
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+
       - name: truck_id
+        data_type: number
         description: "{{ doc('tasty_bytes__truck_id') }}"
+        constraints:
+          - type: not_null
+
       - name: location_id
+        data_type: float
         description: "{{ doc('tasty_bytes__location_id') }}"
+        constraints:
+          - type: not_null
+
       - name: customer_id
+        data_type: number
         description: "{{ doc('tasty_bytes__customer_id') }}"
+        constraints:
+          - type: not_null
+
       - name: discount_id
+        data_type: varchar
         description: "{{ doc('tasty_bytes__discount_id') }}"
+
       - name: shift_id
+        data_type: number
         description: "{{ doc('tasty_bytes__shift_id') }}"
+
       - name: shift_start_time
+        data_type: time
         description: "{{ doc('tasty_bytes__shift_start_time') }}"
+
       - name: shift_end_time
+        data_type: time
         description: "{{ doc('tasty_bytes__shift_end_time') }}"
+
       - name: order_channel
+        data_type: varchar
         description: "{{ doc('tasty_bytes__order_channel') }}"
-      - name: order_ts
-        description: "{{ doc('tasty_bytes__order_ts') }}"
-      - name: served_ts
-        description: "{{ doc('tasty_bytes__served_ts') }}"
+
+      - name: ordered_at
+        data_type: timestamp_ntz
+        description: "{{ doc('tasty_bytes__ordered_at') }}"
+
+      - name: served_at
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__served_at') }}"
+
       - name: order_currency
+        data_type: varchar
         description: "{{ doc('tasty_bytes__order_currency') }}"
+
       - name: order_amount
+        data_type: number
         description: "{{ doc('tasty_bytes__order_amount') }}"
+
       - name: order_tax_amount
+        data_type: varchar
         description: "{{ doc('tasty_bytes__order_tax_amount') }}"
+
       - name: order_discount_amount
+        data_type: varchar
         description: "{{ doc('tasty_bytes__order_discount_amount') }}"
+
       - name: order_total
+        data_type: number
         description: "{{ doc('tasty_bytes__order_total') }}"
+
+      - name: dbt_scd_id
+        data_type: varchar
+        description: "{{ doc('dbt_snapshot__dbt_scd_id') }}"
+
+      - name: dbt_updated_at
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dbt_updated_at') }}"
+
+      - name: dbt_valid_from
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dbt_valid_from') }}"
+
+      - name: dbt_valid_to
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dbt_valid_to') }}"
+
+      - name: dwh_effective_from
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dwh_effective_from') }}"

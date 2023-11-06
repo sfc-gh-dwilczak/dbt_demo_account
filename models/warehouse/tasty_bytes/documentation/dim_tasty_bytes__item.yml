@@ -11,7 +11,7 @@ models:
       - v: 1
     
     columns:
-      - name: dwh_location_id
+      - name: dwh_item_id
         data_type: varchar
         description: ""
         constraints:

@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: fct_tasty_bytes__order_detail
+    config:
+      contract:
+        enforced: true
+      materialized: view
+    latest_version: 1
+    versions:
+      - v: 1
+    
+    columns:
+      - name: dwh_order_detail_id
+        data_type: varchar
+
+      - name: dwh_source
+        data_type: varchar
+
+      - name: dwh_version
+        data_type: number
+
+      - name: dwh_granularity
+        data_type: varchar
+
+      - name: dwh_order_id
+        data_type: varchar
+
+      - name: dwh_item_id
+        data_type: varchar
+
+      - name: discount_id
+        data_type: varchar
+
+      - name: line_number
+        data_type: number
+
+      - name: quantity
+        data_type: number
+
+      - name: unit_price
+        data_type: number
+
+      - name: price
+        data_type: number
+
+      - name: order_item_discount_amount
+        data_type: varchar

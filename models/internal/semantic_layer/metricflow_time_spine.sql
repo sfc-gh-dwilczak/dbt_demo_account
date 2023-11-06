@@ -3,30 +3,11 @@
 {% endif -%}
 
 with
-    --future_features as (select * from {# ref('stg_forecast__future_features') #}),
-    --sales_data as (select * from {# ref('stg_forecast__sales_data') #}),
     snowflake_usage as (select * from {{ ref('fct_snowflake_usage__metrics') }}),
     customer as (select * from {{ ref('stg_tasty_bytes__customer', v=1) }}),
-    orders as (select * from {{ ref('stg_tasty_bytes__order_header') }}),
+    orders as (select * from {{ ref('stg_tasty_bytes__order_header', v=1) }}),
 
     date_ranges as (
-        /*
-        select
-            min("DATE"::date) as start_on,
-            max("DATE"::date) as stop_on
-        from
-            future_features
-        
-        union all
-
-        select
-            min(sold_on::date) as start_on,
-            max(sold_on::date) as stop_on
-        from
-            sales_data
-        
-        union all
-        */
         select
             min(usage_date::date) as start_on,
             max(usage_date::date) as stop_on
@@ -44,8 +25,8 @@ with
         union all
 
         select
-            min(order_ts::date) as start_on,
-            max(order_ts::date) as stop_on
+            min(ordered_at::date) as start_on,
+            max(ordered_at::date) as stop_on
         from
             orders
     ),
