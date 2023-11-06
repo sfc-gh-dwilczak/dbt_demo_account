@@ -18,11 +18,11 @@ Primary key for a country.
 The full name of the country.
 {% enddocs %}
 
-{% docs tasty_bytes__iso_currency_code %}
+{% docs tasty_bytes__currency_iso_code %}
 The ISO currency code (e.g. USD) used in that country.
 {% enddocs %}
 
-{% docs tasty_bytes__iso_country_code %}
+{% docs tasty_bytes__country_iso_code %}
 The ISO country code (e.g. US).
 {% enddocs %}
 
@@ -94,8 +94,8 @@ Primary key for a location.
 Location name.
 {% enddocs %}
 
-{% docs tasty_bytes__region_name %}
-Region name.
+{% docs tasty_bytes__local_region_name %}
+Name of local region within a city.
 {% enddocs %}
 
 {% docs tasty_bytes__menu_id %}
@@ -138,7 +138,7 @@ Cost of goods in US dollars.
 Sales price in US dollars.
 {% enddocs %}
 
-{% docs tasty_bytes__menu_item_health_metrics_obj %}
+{% docs tasty_bytes__health_metrics %}
 Menu item health related variant data (e.g. ingredients, calories, etc.).
 {% enddocs %}
 
@@ -226,8 +226,12 @@ Final order amount.
 Primary city the truck visits.
 {% enddocs %}
 
-{% docs tasty_bytes__iso_region %}
-ISO region.
+{% docs tasty_bytes__country_region_name %}
+Name for a region within a country.
+{% enddocs %}
+
+{% docs tasty_bytes__country_region_iso_code %}
+ISO code for a region within a country.
 {% enddocs %}
 
 {% docs tasty_bytes__franchise_flag %}

@@ -42,9 +42,16 @@ with
                         ["'tasty_bytes'", "1", "'city_name'", "min(city_name)"]
                     ) }}
                 when min(country_name) = max(country_name)
-                then {{ dbt_utils.generate_surrogate_key(
-                        ["'tasty_bytes'", "1", "'country_name'", "min(country_name)"]
-                    ) }}
+                then {{ dbt_utils.generate_surrogate_key([
+                        "'tasty_bytes'",
+                        "1",
+                        "'country_name'",
+                        "case min(country_name) "
+                            ~ "when 'United Kingdom' "
+                            ~ "then 'England' "
+                            ~ "else min(country_name) "
+                        ~ "end"
+                    ]) }}
             end as dwh_location_id,
             {%- for column in [
                 'city_name',
@@ -89,9 +96,16 @@ with
                         ["'tasty_bytes'", "1", "'city_name'", "min(city_name)"]
                     ) }}
                 when min(country_name) = max(country_name)
-                then {{ dbt_utils.generate_surrogate_key(
-                        ["'tasty_bytes'", "1", "'country_name'", "min(country_name)"]
-                    ) }}
+                then {{ dbt_utils.generate_surrogate_key([
+                        "'tasty_bytes'",
+                        "1",
+                        "'country_name'",
+                        "case min(country_name) "
+                            ~ "when 'United Kingdom' "
+                            ~ "then 'England' "
+                            ~ "else min(country_name) "
+                        ~ "end"
+                    ]) }}
             end as dwh_location_id,
             {%- for column in [
                 'city_name',
@@ -140,9 +154,16 @@ with
                         ["'tasty_bytes'", "1", "'city_name'", "min(city_name)"]
                     ) }}
                 when min(country_name) = max(country_name)
-                then {{ dbt_utils.generate_surrogate_key(
-                        ["'tasty_bytes'", "1", "'country_name'", "min(country_name)"]
-                    ) }}
+                then {{ dbt_utils.generate_surrogate_key([
+                        "'tasty_bytes'",
+                        "1",
+                        "'country_name'",
+                        "case min(country_name) "
+                            ~ "when 'United Kingdom' "
+                            ~ "then 'England' "
+                            ~ "else min(country_name) "
+                        ~ "end"
+                    ]) }}
             end as dwh_location_id,
             {%- for column in [
                 'city_name',
@@ -187,9 +208,16 @@ with
                         ["'tasty_bytes'", "1", "'city_name'", "min(city_name)"]
                     ) }}
                 when min(country_name) = max(country_name)
-                then {{ dbt_utils.generate_surrogate_key(
-                        ["'tasty_bytes'", "1", "'country_name'", "min(country_name)"]
-                    ) }}
+                then {{ dbt_utils.generate_surrogate_key([
+                        "'tasty_bytes'",
+                        "1",
+                        "'country_name'",
+                        "case min(country_name) "
+                            ~ "when 'United Kingdom' "
+                            ~ "then 'England' "
+                            ~ "else min(country_name) "
+                        ~ "end"
+                    ]) }}
             end as dwh_location_id,
             {%- for column in [
                 'city_name',

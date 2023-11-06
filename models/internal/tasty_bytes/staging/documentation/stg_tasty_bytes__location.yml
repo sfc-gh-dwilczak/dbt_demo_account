@@ -1,11 +1,14 @@
 version: 2
 
 models:
-  - name: stg_tasty_bytes__location_v1
+  - name: stg_tasty_bytes__location
     description: Location dimension.
     config:
       contract:
         enforced: true
+    latest_version: 1
+    versions:
+      - v: 1
     
     columns:
       - name: location_id
@@ -32,13 +35,13 @@ models:
         data_type: varchar
         description: "{{ doc('tasty_bytes__city_name') }}"
 
-      - name: region_name
+      - name: local_region_name
         data_type: varchar
-        description: "{{ doc('tasty_bytes__region_name') }}"
+        description: "{{ doc('tasty_bytes__local_region_name') }}"
 
-      - name: iso_country_code
+      - name: country_iso_code
         data_type: varchar
-        description: "{{ doc('tasty_bytes__iso_country_code') }}"
+        description: "{{ doc('tasty_bytes__country_iso_code') }}"
 
       - name: country_name
         data_type: varchar
