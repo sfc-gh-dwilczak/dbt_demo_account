@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: src_tasty_bytes__location
+    config:
+      contract:
+        enforced: true
+    
+    columns:
+      - name: location_id
+        data_type: number
+        constraints:
+          - type: not_null
+        tests:
+          - unique_with_salt
+
+      - name: placekey
+        data_type: varchar
+
+      - name: location
+        data_type: varchar
+
+      - name: city
+        data_type: varchar
+
+      - name: region
+        data_type: varchar
+
+      - name: iso_country_code
+        data_type: varchar
+
+      - name: country
+        data_type: varchar

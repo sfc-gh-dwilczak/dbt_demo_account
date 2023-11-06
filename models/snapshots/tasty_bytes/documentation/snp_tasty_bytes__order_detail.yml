@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: snp_tasty_bytes__order_detail
+    latest_version: 1
+    versions:
+      - v: 1

@@ -1,0 +1,86 @@
+version: 2
+
+models:
+  - name: dim_tasty_bytes__customer
+    description: "Tasty bytes customer dimensions."
+    config:
+      contract:
+        enforced: true
+    latest_version: 1
+    versions:
+      - v: 1
+    
+    columns:
+      - name: dwh_customer_id
+        data_type: varchar
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+
+      - name: dwh_source
+        data_type: varchar
+        constraints:
+          - type: not_null
+        tests:
+          - accepted_values:
+              values:
+                - 'tasty_bytes'
+
+      - name: dwh_version
+        data_type: number
+        constraints:
+          - type: not_null
+
+      - name: dwh_granularity
+        data_type: varchar
+        constraints:
+          - type: not_null
+
+      - name: customer_id
+        data_type: number
+
+      - name: first_name
+        data_type: varchar
+
+      - name: last_name
+        data_type: varchar
+
+      - name: dwh_location_id
+        data_type: varchar
+
+      - name: city_name
+        data_type: varchar
+
+      - name: country_name
+        data_type: varchar
+
+      - name: postal_code
+        data_type: varchar
+
+      - name: preferred_language
+        data_type: varchar
+
+      - name: gender
+        data_type: varchar
+
+      - name: favourite_brand
+        data_type: varchar
+
+      - name: marital_status
+        data_type: varchar
+
+      - name: children_count
+        data_type: varchar
+
+      - name: sign_up_date
+        data_type: date
+
+      - name: birthday_date
+        data_type: date
+
+      - name: email
+        data_type: varchar
+
+      - name: phone_number
+        data_type: varchar

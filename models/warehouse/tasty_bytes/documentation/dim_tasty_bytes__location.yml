@@ -1,0 +1,70 @@
+version: 2
+
+models:
+  - name: dim_tasty_bytes__location_city
+    description: "Tasty bytes city location dimensions."
+    config:
+      contract:
+        enforced: true
+    latest_version: 1
+    versions:
+      - v: 1
+    
+    columns:
+      - name: dwh_location_id
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+      
+      - name: dwh_source
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+        tests:
+          - accepted_values:
+              values:
+                - 'tasty_bytes'
+      
+      - name: dwh_version
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+      
+      - name: dwh_granularity
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+      
+      - name: city_id
+        data_type: number
+        description: "{{ doc('tasty_bytes__city_id') }}"
+      
+      - name: city_name
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__city_name') }}"
+      
+      - name: city_population
+        data_type: number
+        description: "{{ doc('tasty_bytes__city_population') }}"
+      
+      - name: country_id
+        data_type: number
+        description: "{{ doc('tasty_bytes__country_id') }}"
+      
+      - name: country_name
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__country_name') }}"
+      
+      - name: country_iso_code
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__country_iso_code') }}"
+      
+      - name: currency_iso_code
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__currency_iso_code') }}"

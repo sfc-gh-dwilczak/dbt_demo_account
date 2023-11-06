@@ -1,0 +1,84 @@
+version: 2
+
+models:
+  - name: stg_tasty_bytes__menu
+    description: Menu dimensions.
+    config:
+      contract:
+        enforced: true
+    latest_version: 1
+    versions:
+      - v: 1
+    
+    columns:
+      - name: menu_id
+        data_type: number
+        description: "{{ doc('tasty_bytes__menu_id') }}"
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+
+      - name: menu_type_id
+        data_type: number
+        description: "{{ doc('tasty_bytes__menu_type_id') }}"
+
+      - name: menu_type
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__menu_type') }}"
+
+      - name: truck_brand_name
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__truck_brand_name') }}"
+
+      - name: menu_item_id
+        data_type: number
+        description: "{{ doc('tasty_bytes__menu_item_id') }}"
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+
+      - name: menu_item_name
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__menu_item_name') }}"
+
+      - name: item_category
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__item_category') }}"
+
+      - name: item_subcategory
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__item_subcategory') }}"
+
+      - name: cost_of_goods_usd
+        data_type: number
+        description: "{{ doc('tasty_bytes__cost_of_goods_usd') }}"
+
+      - name: sale_price_usd
+        data_type: number
+        description: "{{ doc('tasty_bytes__sale_price_usd') }}"
+
+      - name: health_metrics
+        data_type: variant
+        description: "{{ doc('tasty_bytes__health_metrics') }}"
+
+      - name: dbt_scd_id
+        data_type: varchar
+        description: "{{ doc('dbt_snapshot__dbt_scd_id') }}"
+
+      - name: dbt_updated_at
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dbt_updated_at') }}"
+
+      - name: dbt_valid_from
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dbt_valid_from') }}"
+
+      - name: dbt_valid_to
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dbt_valid_to') }}"
+
+      - name: dwh_effective_from
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dwh_effective_from') }}"

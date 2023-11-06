@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: src_tasty_bytes__order_header
+    config:
+      contract:
+        enforced: true
+    
+    columns:
+      - name: order_id
+        data_type: number
+
+      - name: truck_id
+        data_type: number
+
+      - name: location_id
+        data_type: float
+
+      - name: customer_id
+        data_type: number
+
+      - name: discount_id
+        data_type: varchar
+
+      - name: shift_id
+        data_type: number
+
+      - name: shift_start_time
+        data_type: time
+
+      - name: shift_end_time
+        data_type: time
+
+      - name: order_channel
+        data_type: varchar
+
+      - name: order_ts
+        data_type: timestamp_ntz
+
+      - name: served_ts
+        data_type: varchar
+
+      - name: order_currency
+        data_type: varchar
+
+      - name: order_amount
+        data_type: number
+
+      - name: order_tax_amount
+        data_type: varchar
+
+      - name: order_discount_amount
+        data_type: varchar
+
+      - name: order_total
+        data_type: number

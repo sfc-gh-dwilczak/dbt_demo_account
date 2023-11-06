@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: src_tasty_bytes__menu
+    config:
+      contract:
+        enforced: true
+    
+    columns:
+      - name: menu_id
+        data_type: number
+
+      - name: menu_type_id
+        data_type: number
+
+      - name: menu_type
+        data_type: varchar
+
+      - name: truck_brand_name
+        data_type: varchar
+
+      - name: menu_item_id
+        data_type: number
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+
+      - name: menu_item_name
+        data_type: varchar
+
+      - name: item_category
+        data_type: varchar
+
+      - name: item_subcategory
+        data_type: varchar
+
+      - name: cost_of_goods_usd
+        data_type: number
+
+      - name: sale_price_usd
+        data_type: number
+
+      - name: menu_item_health_metrics_obj
+        data_type: variant

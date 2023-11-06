@@ -1,0 +1,48 @@
+version: 2
+
+semantic_models:
+  - name: snowflake_usage_query
+    model: ref('dim_snowflake_usage__query', v=1)
+
+    entities:
+      - name: snowflake_usage
+        expr: dwh_snowflake_usage_id
+        type: unique
+    primary_entity: snowflake_usage_query
+
+    dimensions:
+      - name: query_type
+        type: categorical
+      
+      - name: query_tag
+        type: categorical
+      
+      - name: query_text
+        type: categorical
+      
+      - name: database_name
+        type: categorical
+      
+      - name: schema_name
+        type: categorical
+      
+      - name: user_name
+        type: categorical
+      
+      - name: role_type
+        type: categorical
+      
+      - name: role_name
+        type: categorical
+      
+      - name: warehouse_name
+        type: categorical
+      
+      - name: warehouse_size
+        type: categorical
+      
+      - name: warehouse_type
+        type: categorical
+      
+      - name: warehouse_clusters
+        type: categorical

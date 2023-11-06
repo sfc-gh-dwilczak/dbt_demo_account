@@ -1,0 +1,76 @@
+version: 2
+
+models:
+  - name: stg_tasty_bytes__order_detail
+    description: Orders detail dimensions.
+    config:
+      contract:
+        enforced: true
+    latest_version: 1
+    versions:
+      - v: 1
+    
+    columns:
+      - name: order_detail_id
+        data_type: number
+        description: "{{ doc('tasty_bytes__order_detail_id') }}"
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+
+      - name: order_id
+        data_type: number
+        description: "{{ doc('tasty_bytes__order_id') }}"
+        constraints:
+          - type: not_null
+
+      - name: menu_item_id
+        data_type: number
+        description: "{{ doc('tasty_bytes__menu_item_id') }}"
+        constraints:
+          - type: not_null
+
+      - name: discount_id
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__discount_id') }}"
+
+      - name: line_number
+        data_type: number
+        description: "{{ doc('tasty_bytes__line_number') }}"
+
+      - name: quantity
+        data_type: number
+        description: "{{ doc('tasty_bytes__quantity') }}"
+
+      - name: unit_price
+        data_type: number
+        description: "{{ doc('tasty_bytes__unit_price') }}"
+
+      - name: price
+        data_type: number
+        description: "{{ doc('tasty_bytes__price') }}"
+
+      - name: order_item_discount_amount
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__order_item_discount_amount') }}"
+
+      - name: dbt_scd_id
+        data_type: varchar
+        description: "{{ doc('dbt_snapshot__dbt_scd_id') }}"
+
+      - name: dbt_updated_at
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dbt_updated_at') }}"
+
+      - name: dbt_valid_from
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dbt_valid_from') }}"
+
+      - name: dbt_valid_to
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dbt_valid_to') }}"
+
+      - name: dwh_effective_from
+        data_type: timestamp_ntz
+        description: "{{ doc('dbt_snapshot__dwh_effective_from') }}"

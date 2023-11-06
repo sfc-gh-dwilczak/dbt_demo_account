@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: dim_snowflake_usage__warehouse
+    config:
+      contract:
+        enforced: true
+    latest_version: 1
+    versions:
+      - v: 1
+    
+    columns:
+      - name: dwh_snowflake_usage_id
+        data_type: varchar
+
+      - name: warehouse_name
+        data_type: varchar

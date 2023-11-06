@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: dim_snowflake_usage__service
+    config:
+      contract:
+        enforced: true
+    latest_version: 1
+    versions:
+      - v: 1
+    
+    columns:
+      - name: dwh_snowflake_usage_id
+        data_type: varchar
+
+      - name: entity_id
+        data_type: number
+
+      - name: service_type
+        data_type: varchar
+
+      - name: service_name
+        data_type: varchar
