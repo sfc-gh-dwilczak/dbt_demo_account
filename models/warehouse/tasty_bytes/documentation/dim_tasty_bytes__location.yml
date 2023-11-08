@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_tasty_bytes__location_city
+  - name: dim_tasty_bytes__location
     description: "Tasty bytes city location dimensions."
     config:
       contract:
