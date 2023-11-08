@@ -84,3 +84,6 @@ models:
 
       - name: truck_opening_date
         data_type: date
+
+      - name: truck_brand_name
+        data_type: varchar
