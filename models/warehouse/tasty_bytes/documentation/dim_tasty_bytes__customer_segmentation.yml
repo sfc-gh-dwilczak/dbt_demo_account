@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: dim_tasty_bytes__customer_segmentation
+    config:
+      contract:
+        enforced: true
+    latest_version: 1
+    versions:
+      - v: 1
+    
+    columns:
+      - name: dwh_customer_id
+        data_type: varchar
+
+      - name: recency
+        data_type: number
+
+      - name: frequency
+        data_type: number
+
+      - name: monetary
+        data_type: number
+
+      - name: recency_percentile
+        data_type: float
+
+      - name: frequency_percentile
+        data_type: float
+
+      - name: monetary_percentile
+        data_type: float
+
+      - name: recency_score
+        data_type: number
+
+      - name: frequency_score
+        data_type: number
+
+      - name: monetary_score
+        data_type: number
+
+      - name: rfm_segment
+        data_type: varchar
