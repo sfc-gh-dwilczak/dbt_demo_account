@@ -41,6 +41,22 @@ models:
         constraints:
           - type: not_null
       
+      - name: location_id
+        data_type: number
+        description: "{{ doc('tasty_bytes__location_id') }}"
+      
+      - name: place_key
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__place_key') }}"
+      
+      - name: location_name
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__location_name') }}"
+      
+      - name: local_region_name
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__local_region_name') }}"
+      
       - name: city_id
         data_type: number
         description: "{{ doc('tasty_bytes__city_id') }}"
@@ -52,6 +68,14 @@ models:
       - name: city_population
         data_type: number
         description: "{{ doc('tasty_bytes__city_population') }}"
+      
+      - name: country_region_name
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__country_region_name') }}"
+      
+      - name: country_region_iso_code
+        data_type: varchar
+        description: "{{ doc('tasty_bytes__country_region_iso_code') }}"
       
       - name: country_id
         data_type: number
