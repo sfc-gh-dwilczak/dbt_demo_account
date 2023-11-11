@@ -6,7 +6,7 @@ with
             {{ dbt_utils.generate_surrogate_key(
                 ["'tasty_bytes'", "1", "'customer_id'", "customer_id"]
             ) }} as dwh_customer_id,
-            current_date - max(ordered_at::date) as recency,
+            max(ordered_at) as recency,
             count(*) as frequency,
             sum(order_total) as monetary
         from
@@ -18,7 +18,7 @@ with
     percentiles as (
         select
             *,
-            percent_rank() over (order by recency desc) as recency_percentile,
+            percent_rank() over (order by recency) as recency_percentile,
             percent_rank() over (order by frequency) as frequency_percentile,
             percent_rank() over (order by monetary) as monetary_percentile
         from
@@ -61,4 +61,4 @@ with
             scores
     )
 
-select * from segments
+select dwh_customer_id, rfm_segment, recency, frequency, monetary, recency_score, frequency_score, monetary_score from segments order by monetary_score desc, frequency_score desc, recency_score desc, monetary_percentile desc, frequency_percentile desc, recency_percentile desc limit 500
