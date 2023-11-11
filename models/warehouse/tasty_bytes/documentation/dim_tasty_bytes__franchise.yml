@@ -60,3 +60,6 @@ models:
 
       - name: phone_number
         data_type: varchar
+
+      - name: truck_brand_name
+        data_type: varchar
