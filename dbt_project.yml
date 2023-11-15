@@ -37,8 +37,8 @@ models:
       +database: dbt_internal
       +schema: snapshots
       +materialized: incremental
+      +incremental_strategy: delete+insert
       +unique_key: dbt_scd_id
-      +incremental_predicates: ['DBT_INTERNAL_DEST.dbt_valid_to is null']
       +full_refresh: false
     warehouse:
       +database: data_warehouse
