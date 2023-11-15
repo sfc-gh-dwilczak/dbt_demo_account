@@ -11,6 +11,8 @@ with
             sum(order_total) as monetary
         from
             order_header
+        where
+            customer_id is not null
         group by
             all
     ),
@@ -49,11 +51,11 @@ with
                 when recency_score <= 2 and frequency_score <= 4 then 'At Risk'
                 when recency_score <= 2 and frequency_score <= 5 then 'Cannot Lose Them'
                 when recency_score <= 3 and frequency_score <= 2 then 'About to Sleep'
-                when recency_score <= 3 and frequency_score <= 3 then 'Need Attention'
+                when recency_score <= 3 and frequency_score <= 3 then 'Needs Attention'
                 when recency_score <= 4 and frequency_score <= 1 then 'Promising'
                 when recency_score <= 4 and frequency_score <= 3 then 'Potential Loyalists'
-                when recency_score <= 4 and frequency_score <= 5 then 'Loyal Customers'
-                when recency_score <= 5 and frequency_score <= 1 then 'New Customers'
+                when recency_score <= 4 and frequency_score <= 5 then 'Loyal'
+                when recency_score <= 5 and frequency_score <= 1 then 'New'
                 when recency_score <= 5 and frequency_score <= 3 then 'Potential Loyalists'
                 else 'Champions'
             end as rfm_segment
@@ -61,4 +63,4 @@ with
             scores
     )
 
-select dwh_customer_id, rfm_segment, recency, frequency, monetary, recency_score, frequency_score, monetary_score from segments order by monetary_score desc, frequency_score desc, recency_score desc, monetary_percentile desc, frequency_percentile desc, recency_percentile desc limit 500
+select * from segments
