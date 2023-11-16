@@ -33,6 +33,9 @@ models:
     reporting:
       +database: data_reports
       +materialized: table
+      +grants:
+        select:
+          - analyst
     snapshots:
       +database: dbt_internal
       +schema: snapshots
@@ -43,6 +46,9 @@ models:
     warehouse:
       +database: data_warehouse
       +materialized: table
+      +grants:
+        select:
+          - analyst
 
 snapshots:
   Analytics:
