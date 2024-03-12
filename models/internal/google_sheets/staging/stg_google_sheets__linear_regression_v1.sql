@@ -8,7 +8,7 @@ with
     renamed as (
         select
             _row,
-            x,
+            x as z,
             y,
             _fivetran_synced,
             dbt_scd_id,
